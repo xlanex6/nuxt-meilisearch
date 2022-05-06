@@ -1,16 +1,17 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
+import defu from 'defu'
 import { defineNuxtModule, addPlugin } from '@nuxt/kit'
 
 export interface ModuleOptions {
   meilisearchUrl: string,
   apiKey: string,
-  instantSearch: boolean,
-  placeholderSearch: boolean,
-  paginationTotalHits: number,
-  finitePagination: boolean,
-  primaryKey: string,
-  keepZeroFacets: boolean
+  instantSearch?: boolean,
+  placeholderSearch?: boolean,
+  paginationTotalHits?: number,
+  finitePagination?: boolean,
+  primaryKey?: string,
+  keepZeroFacets?: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -33,7 +34,34 @@ export default defineNuxtModule<ModuleOptions>({
 
   },
   setup(options, nuxt) {
-    
 
+    if (!options.meilisearchUrl) {
+      throw new Error('`[nuxt-meilisearch]` Missing `meilisearchUrl`')
+    }
+
+    if (!options.apiKey) {
+      throw new Error('`[nuxt-meilisearch]` Missing `apiKey`')
+    }
+    
+    // Default runtimeConfig
+    nuxt.options.runtimeConfig.public.meilisearch = defu(nuxt.options.runtimeConfig.public.meilisearch, {
+      meilisearchUrl: options.meilisearchUrl,
+      apiKey: options.apiKey,
+      instantSearch: options.instantSearch,
+      placeholderSearch: options.placeholderSearch,
+      paginationTotalHits: options.paginationTotalHits,
+      finitePagination: options.finitePagination,
+      primaryKey: options.primaryKey,
+      keepZeroFacets: options.keepZeroFacets,
+    })
+
+    
+    // Transpile runtime
+    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
+    nuxt.options.build.transpile.push(runtimeDir)
+    
+    addPlugin(resolve(runtimeDir, 'plugin'))
+
+    // console.log('`[nuxt-meilisearch]` module is load 🚀')
   }
 })

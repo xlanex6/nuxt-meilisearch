@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     NuxtMeilisearch
   ],
   meilisearch: {
-    addPlugin: true
+    meilisearchUrl: '',
+    apiKey: '',
   }
 })
