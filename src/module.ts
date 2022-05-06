@@ -4,7 +4,7 @@ import defu from 'defu'
 import { defineNuxtModule, addPlugin } from '@nuxt/kit'
 
 export interface ModuleOptions {
-  meilisearchUrl: string,
+  hostUrl: string,
   apiKey: string,
   instantSearch?: boolean,
   placeholderSearch?: boolean,
@@ -23,7 +23,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   defaults: {
-    meilisearchUrl: '',
+    hostUrl: '',
     apiKey: '',
     instantSearch: true,
     placeholderSearch: true,
@@ -35,8 +35,8 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup(options, nuxt) {
 
-    if (!options.meilisearchUrl) {
-      throw new Error('`[nuxt-meilisearch]` Missing `meilisearchUrl`')
+    if (!options.hostUrl) {
+      throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
     }
 
     if (!options.apiKey) {
@@ -45,9 +45,10 @@ export default defineNuxtModule<ModuleOptions>({
     
     // Default runtimeConfig
     nuxt.options.runtimeConfig.public.meilisearch = defu(nuxt.options.runtimeConfig.public.meilisearch, {
-      meilisearchUrl: options.meilisearchUrl,
+      hostUrl: options.hostUrl,
       apiKey: options.apiKey,
       instantSearch: options.instantSearch,
+      // should be in ONE object
       placeholderSearch: options.placeholderSearch,
       paginationTotalHits: options.paginationTotalHits,
       finitePagination: options.finitePagination,

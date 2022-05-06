@@ -30,14 +30,15 @@
     "lint": "eslint --ext .js,.ts,.vue"
   },
   "dependencies": {
+    "@meilisearch/instant-meilisearch": "^0.7.0",
     "@nuxt/kit": "^3.0.0-rc.2"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
-    "standard-version": "^9.3.2",
     "@nuxtjs/eslint-config-typescript": "latest",
     "eslint": "latest",
-    "nuxt": "^3.0.0-rc.2"
+    "nuxt": "^3.0.0-rc.2",
+    "standard-version": "^9.3.2"
   },
   "publishConfig": {
     "access": "public"
