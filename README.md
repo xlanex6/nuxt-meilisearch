@@ -13,9 +13,14 @@
 
 ## Roadmap
 
-- [ ] Init - Open github repo
-- [ ] Main Meilisearch JS client
+- [x] Init - Open github repo
+- [x] Main Meilisearch JS client
+- [ ] Load options in single object
+- [ ] Move inject via composables instead of plugin
 - [ ] Condition algolia components , default true
+  - vue 3 comp
+  - theme ? 
+  - via plugin
 - [ ] 
 - [ ] 
 - [ ] Publish NPM as xlanex || nuxt-community ?
