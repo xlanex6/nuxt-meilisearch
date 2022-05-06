@@ -1,11 +1,11 @@
 import { defineNuxtConfig } from 'nuxt'
-import MyModule from '..'
+import NuxtMeilisearch from '..'
 
 export default defineNuxtConfig({
   modules: [
-    MyModule
+    NuxtMeilisearch
   ],
-  myModule: {
+  meilisearch: {
     addPlugin: true
   }
 })

@@ -3,22 +3,37 @@ import { fileURLToPath } from 'url'
 import { defineNuxtModule, addPlugin } from '@nuxt/kit'
 
 export interface ModuleOptions {
-  addPlugin: boolean
+  meilisearchUrl: string,
+  apiKey: string,
+  instantSearch: boolean,
+  placeholderSearch: boolean,
+  paginationTotalHits: number,
+  finitePagination: boolean,
+  primaryKey: string,
+  keepZeroFacets: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'my-module',
-    configKey: 'myModule'
+    name: 'nuxt-meilisearch',
+    configKey: 'meilisearch',
+    compatibility: {
+      nuxt: '^3.0.0'
+    }
   },
   defaults: {
-    addPlugin: true
+    meilisearchUrl: '',
+    apiKey: '',
+    instantSearch: true,
+    placeholderSearch: true,
+    paginationTotalHits: 50,
+    finitePagination: true,
+    primaryKey: undefined,
+    keepZeroFacets: false
+
   },
-  setup (options, nuxt) {
-    if (options.addPlugin) {
-      const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
-      nuxt.options.build.transpile.push(runtimeDir)
-      addPlugin(resolve(runtimeDir, 'plugin'))
-    }
+  setup(options, nuxt) {
+    
+
   }
 })
