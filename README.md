@@ -23,8 +23,10 @@
 - [ ]  -->
 - [ ] Publish NPM as xlanex || nuxt-community ?
 - [ ] Nice demo site
-- [ ] Create Docs site ( content || docus ? )
-- [ ] Preview on StackBlitz
+  - [ ] meilisearch instance from cloud
+  - [ ] publish on netlify
+- [ ] Create Docs site ( content || docus ? ) then publish
+- [ ] Demo on StackBlitz for quick hack
 
 ## Development
 
