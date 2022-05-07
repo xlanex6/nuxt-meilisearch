@@ -8,5 +8,8 @@ export default defineNuxtConfig({
   meilisearch: {
     hostUrl: 'https://search.capital-patrimoine.fr',
     apiKey: 'ZGNhMjk3NzEzNjkwYTE5NjBlZGVjZDVm',
+    options: {
+      
+    }
   }
 })
