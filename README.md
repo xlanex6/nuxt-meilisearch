@@ -8,8 +8,8 @@
 ## Features
 
  - Nuxt 3
- - Easy integration with Meilisearch [JS lib](https://github.com/meilisearch/instant-meilisearch)
- - Support for Vue [Algolia Vue Instantsearch](https://github.com/algolia/vue-instantsearch) components ( via options )
+ - Easy integration with [MeilisearchJS lib](https://github.com/meilisearch/instant-meilisearch)
+ - Support for Vue [Algolia Vue 3 Instantsearch](https://github.com/algolia/vue-instantsearch) components ( optional ) 
 
 ## Roadmap
 
@@ -17,17 +17,14 @@
 - [x] Main Meilisearch JS client
 - [x] Load options in single object
 - [x] Move inject via composables instead of plugin
-- [x] Condition algolia components , default true
-- [ ] 
-- [ ] 
+- [x] Conditional algolia vue3 lib , default true
+- [ ] Use client from SERVER side to manipulate items
+<!-- - [ ] 
+- [ ]  -->
 - [ ] Publish NPM as xlanex || nuxt-community ?
-- [ ] Demo site
-- [ ] Demo
+- [ ] Nice demo site
 - [ ] Create Docs site ( content || docus ? )
 - [ ] Preview on StackBlitz
-
-
-
 
 ## Development
 
