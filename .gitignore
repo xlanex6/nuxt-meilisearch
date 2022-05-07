@@ -9,6 +9,9 @@ node_modules
 .tmp
 .cache
 
+# meilisearch 
+/data.ms
+
 # Yarn
 **/.yarn/cache
 **/.yarn/*state*

@@ -15,16 +15,14 @@
 
 - [x] Init - Open github repo
 - [x] Main Meilisearch JS client
-- [ ] Load options in single object
-- [ ] Move inject via composables instead of plugin
-- [ ] Condition algolia components , default true
-  - vue 3 comp
-  - theme ? 
-  - via plugin
+- [x] Load options in single object
+- [x] Move inject via composables instead of plugin
+- [x] Condition algolia components , default true
 - [ ] 
 - [ ] 
 - [ ] Publish NPM as xlanex || nuxt-community ?
 - [ ] Demo site
+- [ ] Demo
 - [ ] Create Docs site ( content || docus ? )
 - [ ] Preview on StackBlitz
 

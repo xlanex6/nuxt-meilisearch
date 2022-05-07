@@ -66,7 +66,15 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     nuxt.options.build.transpile.push(runtimeDir)
 
+    if (options.instantSearch) { 
+      nuxt.options.build.transpile.push('vue-instantsearch/vue3')
+    }
+
     addPlugin(resolve(runtimeDir, 'plugin'))
+
+    nuxt.hook('autoImports:dirs', (dirs) => {
+      dirs.push(resolve(runtimeDir, 'composables'))
+    })
 
     // console.log('`[nuxt-meilisearch]` module is load 🚀')
   }

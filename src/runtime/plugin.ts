@@ -1,13 +1,13 @@
 import { defineNuxtPlugin, useRuntimeConfig, useNuxtApp } from '#app'
-import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 
-export default defineNuxtPlugin((nuxtApp) => {
 
-  const { meilisearch: {hostUrl, apiKey, options}} = useRuntimeConfig().public
+export default defineNuxtPlugin(async (nuxtApp) => {
 
-  if (!nuxtApp._meilisearchClient) {
-    nuxtApp._meilisearchClient = instantMeiliSearch(hostUrl,apiKey, options)
+  const { meilisearch: { instantSearch }} = useRuntimeConfig().public
+
+  if (instantSearch) {
+    const { plugin } = await import('vue-instantsearch/vue3/es/src/plugin')
+
+    nuxtApp.vueApp.use(plugin)
   }
-
-  return nuxtApp._meilisearchClient
 })
