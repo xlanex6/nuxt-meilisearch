@@ -1,3 +1,5 @@
+![@nuxtjs/supabase](./docs/static/preview.png)
+
 # Nuxt-Meilisearch
 
 <!-- Badges -->
