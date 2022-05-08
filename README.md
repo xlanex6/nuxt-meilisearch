@@ -1,6 +1,13 @@
 ![@nuxtjs/supabase](./docs/static/preview.png)
 
-# Nuxt-Meilisearch
+
+<h1 align='center'>
+nuxt-meilisearch
+</h1>
+<p align='center'>
+[![Latest Stable Version](https://img.shields.io/npm/v/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch)
+[![License](https://img.shields.io/npm/l/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch)
+</p>
 
 <!-- Badges -->
 <!-- [![npm version][npm-version-src]][npm-version-href]
