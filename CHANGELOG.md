@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/xlanex6/nuxt-meilisearch/compare/v0.0.2...v0.0.4) (2022-05-09)
+
+
+### Features
+
+* **TS:** Ts config from exemple ([b6c65e5](https://github.com/xlanex6/nuxt-meilisearch/commit/b6c65e5a7579fec9623de5419221b83487f01eb2))
+
 ### 0.0.2 (2022-05-08)
 
 
