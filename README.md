@@ -12,27 +12,28 @@ nuxt-meilisearch
 
 ---
 
-[Meilisearch](https://www.meilisearch.com/) module for [Nuxt](https://v3.nuxtjs.org/)
+[Meilisearch](https://www.meilisearch.com) module for [Nuxt](https://v3.nuxtjs.org)
 
 ## Features
 
- - Nuxt 3
+ - [Nuxt 3](https://v3.nuxtjs.org)
  - Easy integration with [MeilisearchJS lib](https://github.com/meilisearch/instant-meilisearch)
- - Support for Vue [Algolia Vue 3 Instantsearch](https://github.com/algolia/vue-instantsearch) components ( optional ) 
+ - Support for Vue [Algolia Vue 3 InstantSearch](https://github.com/algolia/vue-instantsearch) components (optional) 
 
  ## Setup 
 
  Install nuxt-meilisearch !
 
  ```bash
-npm install nuxt-meilisearch  // yarn add nuxt-meilisearch
+npm install --save-dev nuxt-meilisearch  // yarn add --dev nuxt-meilisearch
  ```
 
 Add it to the modules section of nuxt.config.ts
 
- ```javascript[nuxt.config.js]
-{
- ...
+ ```ts
+import { defineNuxtConfig } from 'nuxt'
+
+export default defineNuxtConfig({
   modules: [
     'nuxt-meilisearch'
   ],
@@ -41,19 +42,16 @@ Add it to the modules section of nuxt.config.ts
     apiKey: '<YOUR_MEILISEARCH_API_KEY>',
     instantSearch: true // default true
   }
-  ...
-}
+})
 ```
 
 ## Usage
 
 You can load Meilisearch client with composables 
 
-```javascript
+```vue
 <script setup>
-
-const client = useMeilisearchClient();
-
+const client = useMeilisearchClient()
 </script>
 
 ```
@@ -62,7 +60,7 @@ Then is your template you can use all [Algolia Vue 3 Instantsearch](https://gith
 
 Exemple: 
 
-```html
+```vue
 <template>
   <div>
     Nuxt module playground for nuxt-meilisearch !
