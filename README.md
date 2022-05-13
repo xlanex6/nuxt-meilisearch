@@ -103,10 +103,10 @@ Exemple:
 - [x] Conditional algolia vue3 lib , default true
 - [x] Publish NPM
 - [ ] Use client from SERVER side to manipulate items
-- [ ] Nice demo site
+- [ ] 🚧 WIP -  Nice demo site
   - [ ] meilisearch instance from cloud
   - [ ] publish on netlify
-- [ ] Create Docs site ( docus ) then publish
+- [ ] 🚧 WIP - Create Docs site ( docus ) then publish
 - [ ] Demo on StackBlitz for quick hack
 
 ## Development
