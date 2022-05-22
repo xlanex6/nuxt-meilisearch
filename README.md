@@ -1,4 +1,4 @@
-![@nuxtjs/supabase](./docs/static/preview.png)
+![xlanex6/nuxt-meilisearch](./docs/static/preview.png)
 
 
 <h1 align='center'>
@@ -96,17 +96,13 @@ Exemple:
 
 ## Roadmap
 
-- [x] Init - Open github repo
-- [x] Main Meilisearch JS client
-- [x] Load options in single object
-- [x] Move inject via composables instead of plugin
-- [x] Conditional algolia vue3 lib , default true
-- [x] Publish NPM
-- [ ] Use client from SERVER side to manipulate items
+
+- [ ] 🚧 Use Meilisearch client on Server side to manipulate index and documents.
+- [ ] 🚧 Inject Theme for Algolia components
+- [ ] 🚧 Use tree shacking to optimize Algolia components size
 - [ ] 🚧 WIP -  Nice demo site
   - [ ] meilisearch instance from cloud
   - [ ] publish on netlify
-- [ ] 🚧 WIP - Create Docs site ( docus ) then publish
 - [ ] Demo on StackBlitz for quick hack
 
 ## Development
