@@ -1,0 +1,2 @@
+# nuxt-meilisearch DOCS site
+
