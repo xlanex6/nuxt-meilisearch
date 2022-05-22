@@ -1,4 +1,4 @@
-![xlanex6/nuxt-meilisearch](./docs/static/preview.png)
+[![xlanex6/nuxt-meilisearch](./docs/static/preview.png)](https://nuxt-meilisearch-docs.netlify.app/)
 
 
 <h1 align='center'>
