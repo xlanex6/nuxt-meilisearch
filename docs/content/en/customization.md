@@ -31,8 +31,6 @@ Theme valid options are `satellite`, `reset` or `algolia`.
 All `theme` info on [official page](https://www.algolia.com/doc/guides/building-search-ui/widgets/customize-an-existing-widget/vue/#style-your-widgets)
 
 
-It could be 
-
 ```ts
 instantSearch: {
       theme: 'algolia'

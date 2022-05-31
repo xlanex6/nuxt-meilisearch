@@ -45,7 +45,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/xlanex6/nuxt-meilisearch#readme",
+  "homepage": "https://nuxt-meilisearch-docs.netlify.app/",
   "directories": {
     "doc": "docs",
     "example": "playground"

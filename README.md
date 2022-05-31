@@ -40,8 +40,9 @@ export default defineNuxtConfig({
   meilisearch: {
     hostUrl: '<YOUR_MEILISEARCH_HOST_URL>',
     apiKey: '<YOUR_MEILISEARCH_API_KEY>',
-    instantSearch: true // default true
-  }
+    instantSearch: {
+      theme: 'algolia'
+    }
 })
 ```
 
