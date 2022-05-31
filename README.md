@@ -99,12 +99,8 @@ Exemple:
 
 
 - [ ] 🚧 Use Meilisearch client on Server side to manipulate index and documents.
-- [ ] 🚧 Inject Theme for Algolia components
 - [ ] 🚧 Use tree shacking to optimize Algolia components size
 - [ ] 🚧 WIP -  Nice demo site
-  - [ ] meilisearch instance from cloud
-  - [ ] publish on netlify
-- [ ] Demo on StackBlitz for quick hack
 
 ## Development
 
