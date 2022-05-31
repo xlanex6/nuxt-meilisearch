@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/xlanex6/nuxt-meilisearch/compare/v0.0.4...v0.0.6) (2022-05-31)
+
+
+### Bug Fixes
+
+* **dep:** Freeze dependencies until Stable Nuxt version ([1528157](https://github.com/xlanex6/nuxt-meilisearch/commit/15281570006b4fbd8bfeafd4472780500a6c67ff))
+
 ### [0.0.4](https://github.com/xlanex6/nuxt-meilisearch/compare/v0.0.2...v0.0.4) (2022-05-09)
 
 
