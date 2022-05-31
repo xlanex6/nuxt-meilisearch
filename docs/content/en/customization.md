@@ -25,16 +25,23 @@ clientOptions: {
 
 You can use [Algolia Vue 3 Instantsearch](https://github.com/algolia/vue-instantsearch) components. 
 
-By default, it will set at `true` so **ALL** Algolia components will be loaded and available in your app. 
+By default, **ALL** Algolia components will be loaded and available in your app.  
+Theme valid options are `satellite`, `reset` or `algolia`.
+
+All `theme` info on [official page](https://www.algolia.com/doc/guides/building-search-ui/widgets/customize-an-existing-widget/vue/#style-your-widgets)
+
+
+It could be 
 
 ```ts
-instantSearch: true, // default true
+instantSearch: {
+      theme: 'algolia'
+    },
 ```
 
 <alert type="info">
 Keep in mind  
 
-- No theme will be install _( on the Roadmap )_
-- No tree skacking  _( on the Roadmap )_
+- No tree skacking Algolia Vue 3 components lib.   _( on the Roadmap )_
 
 </alert>

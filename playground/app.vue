@@ -10,9 +10,9 @@
       <ais-search-box
         placeholder="Search here…"
         class="searchbox"
-      ></ais-search-box>
+      />
       <ais-hits>
-        <template v-slot="{ items }">
+        <template #default="{ items }">
           <ul>
             <li
               v-for="{id,title,poster} in items"
@@ -24,13 +24,12 @@
           </ul>
         </template>
       </ais-hits>
-
     </ais-instant-search>
   </div>
 </template>
 
 <script setup>
 
-const client = useMeilisearchClient();
+const client = useMeilisearchClient()
 
 </script>

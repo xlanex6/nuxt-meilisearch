@@ -32,6 +32,7 @@
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.7.0",
     "@nuxt/kit": "3.0.0-rc.2",
+    "instantsearch.css": "^7.4.5",
     "vue-instantsearch": "4.3.3"
   },
   "devDependencies": {

@@ -3,10 +3,16 @@ import { fileURLToPath } from 'url'
 import defu from 'defu'
 import { defineNuxtModule, addPlugin } from '@nuxt/kit'
 
+enum InstantSearchThemes {
+  'reset',
+  'algolia',
+  'satellite',
+}
+
 export interface ModuleOptions {
   hostUrl: string,
   apiKey: string,
-  instantSearch?: boolean,
+  instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
   clientOptions?: {
     placeholderSearch?: boolean,
     paginationTotalHits?: number,
@@ -27,7 +33,9 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     hostUrl: '',
     apiKey: '',
-    instantSearch: true,
+    instantSearch: {
+      theme: 'algolia'
+    },
     clientOptions: {
       placeholderSearch: true,
       paginationTotalHits: 50,
@@ -37,8 +45,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
   },
-  setup(options, nuxt) {
-
+  setup (options, nuxt) {
     if (!options.hostUrl) {
       throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
     }
@@ -57,17 +64,27 @@ export default defineNuxtModule<ModuleOptions>({
         paginationTotalHits: options.clientOptions.paginationTotalHits,
         finitePagination: options.clientOptions.finitePagination,
         primaryKey: options.clientOptions.primaryKey,
-        keepZeroFacets: options.clientOptions.keepZeroFacets,
+        keepZeroFacets: options.clientOptions.keepZeroFacets
       }
     })
-
 
     // Transpile runtime
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     nuxt.options.build.transpile.push(runtimeDir)
 
-    if (options.instantSearch) { 
+    if (options.instantSearch) {
       nuxt.options.build.transpile.push('vue-instantsearch/vue3')
+
+      if (typeof options.instantSearch === 'object') {
+        const { theme } = options.instantSearch
+        if (theme) {
+          if (theme in InstantSearchThemes) {
+            nuxt.options.css.push(`instantsearch.css/themes/${theme}.css`)
+          } else {
+            console.error('`[nuxt-meilisearch]` Invalid theme:', theme)
+          }
+        }
+      }
     }
 
     addPlugin(resolve(runtimeDir, 'plugin'))
