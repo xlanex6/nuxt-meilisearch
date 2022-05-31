@@ -1,7 +1,6 @@
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { defineNuxtPlugin, useRuntimeConfig, useNuxtApp } from '#app'
 
-
 export const useMeilisearchClient = () => {
   const nuxtApp = useNuxtApp()
 
