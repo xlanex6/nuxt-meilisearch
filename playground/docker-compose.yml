@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  meilisearch:
+    # https://github.com/meilisearch/instant-meilisearch#-compatibility-with-meilisearch-and-instantsearch
+    image: 'getmeili/meilisearch:v0.27.0'
+    ports:
+      - '7700:7700'
+    environment:
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+    volumes:
+      - 'nuxt-meili-data:/data.ms'
+
+volumes:
+  nuxt-meili-data:

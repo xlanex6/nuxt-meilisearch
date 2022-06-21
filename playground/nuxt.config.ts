@@ -1,13 +1,10 @@
 import { defineNuxtConfig } from 'nuxt'
-import NuxtMeilisearch from '..'
 
 export default defineNuxtConfig({
-  modules: [
-    NuxtMeilisearch
-  ],
+  modules: ['nuxt-meilisearch'],
   meilisearch: {
-    hostUrl: 'http://0.0.0.0:7700',
-    apiKey: 'xxx',
+    hostUrl: 'http://localhost:7700',
+    apiKey: process.env.MEILI_MASTER_KEY,
     instantSearch: {
       theme: 'satellite'
     } // default true
