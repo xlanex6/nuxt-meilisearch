@@ -11,7 +11,9 @@ enum InstantSearchThemes {
 
 export interface ModuleOptions {
   hostUrl: string,
-  apiKey: string,
+  readApiKey: string,
+  writeApiKey?: string,
+  serverSideUsage: boolean,
   instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
   clientOptions?: {
     placeholderSearch?: boolean,
@@ -32,7 +34,9 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     hostUrl: '',
-    apiKey: '',
+    readApiKey: '',
+    writeApiKey: '',
+    serverSideUsage: false
     instantSearch: {
       theme: 'algolia'
     },
@@ -50,14 +54,22 @@ export default defineNuxtModule<ModuleOptions>({
       throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
     }
 
-    if (!options.apiKey) {
-      throw new Error('`[nuxt-meilisearch]` Missing `apiKey`')
+    if (!options.readApiKey) {
+      throw new Error('`[nuxt-meilisearch]` Missing `readApiKey`')
+    }
+    
+    if (options.serverSideUsage) {
+      if (!options.writeApiKey) {
+        throw new Error('`[nuxt-meilisearch]` Missing `writeApiKey`')
+      }
     }
 
     // Default runtimeConfig
     nuxt.options.runtimeConfig.public.meilisearch = defu(nuxt.options.runtimeConfig.public.meilisearch, {
       hostUrl: options.hostUrl,
-      apiKey: options.apiKey,
+      readApiKey: options.readApiKey,
+      writeApiKey: options.writeApiKey,
+      serverSideUsage: options.serverSideUsage,
       instantSearch: options.instantSearch,
       options: {
         placeholderSearch: options.clientOptions.placeholderSearch,
@@ -87,7 +99,12 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
+    if (options.serverSideUsage) {
+      addPlugin(resolve(runtimeDir, 'plugin', 'server'))
+      
+    }
     addPlugin(resolve(runtimeDir, 'plugin'))
+
 
     nuxt.hook('autoImports:dirs', (dirs) => {
       dirs.push(resolve(runtimeDir, 'composables'))
