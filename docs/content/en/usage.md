@@ -10,6 +10,11 @@ You can load Meilisearch client with composables
 
 ```vue
 <script setup>
+import {
+  AisInstantSearch,
+  AisHits,
+  AisSearchBox,
+} from 'vue-instantsearch/vue3/es'
 const client = useMeilisearchClient()
 </script>
 
@@ -23,7 +28,6 @@ Then is your template
       :search-client="client"
       index-name="movies"
     >
-      <ais-configure :hits-per-page.camel="10" />
       <ais-search-box
         placeholder="Search here…"
         class="searchbox"
