@@ -71,7 +71,7 @@ export default defineNuxtModule<ModuleOptions>({
     // Transpile runtime
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     nuxt.options.build.transpile.push(runtimeDir)
-    
+
       if (options.instantSearch) {
         nuxt.options.build.transpile.push('vue-instantsearch/vue3/es')
 
@@ -87,7 +87,6 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    addPlugin(resolve(runtimeDir, 'plugin'))
 
     addImportsDir(resolve(runtimeDir, 'composables'))
 
