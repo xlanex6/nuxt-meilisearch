@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     hostUrl: 'http://0.0.0.0:7700',
     apiKey: 'xxx',
     instantSearch: {
-      theme: 'satellite'
-    } // default true
+      theme: 'algolia'
+    }
   }
 })

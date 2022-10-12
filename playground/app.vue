@@ -29,7 +29,15 @@
 </template>
 
 <script setup>
+import {
+  AisInstantSearch,
+  AisConfigure,
+  AisHits,
+  AisSearchBox,
+  AisRefinementList
+} from 'vue-instantsearch/vue3/es'
 
 const client = useMeilisearchClient()
+
 
 </script>
