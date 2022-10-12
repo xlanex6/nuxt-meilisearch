@@ -30,17 +30,17 @@
     "lint": "eslint --ext .js,.ts,.vue"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.8.0",
-    "@nuxt/kit": "3.0.0-rc.5",
+    "@meilisearch/instant-meilisearch": "0.9.0",
+    "@nuxt/kit": "3.0.0-rc.11",
     "instantsearch.css": "7.4.5",
-    "meilisearch": "0.27.0",
-    "vue-instantsearch": "4.4.0"
+    "meilisearch": "0.28.0",
+    "vue-instantsearch": "4.6.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
     "@nuxtjs/eslint-config-typescript": "latest",
     "eslint": "latest",
-    "nuxt": "3.0.0-rc.5",
+    "nuxt": "3.0.0-rc.11",
     "standard-version": "9.5.0"
   },
   "publishConfig": {
