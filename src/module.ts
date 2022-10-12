@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import defu from 'defu'
-import { defineNuxtModule, addPlugin } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, addImportsDir } from '@nuxt/kit'
 
 enum InstantSearchThemes {
   'reset',
@@ -27,7 +27,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-meilisearch',
     configKey: 'meilisearch',
     compatibility: {
-      nuxt: '^3.0.0'
+      nuxt: '3.0.0-rc.11'
     }
   },
   defaults: {
@@ -45,7 +45,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
   },
-  setup (options, nuxt) {
+  async setup (options, nuxt) {
     if (!options.hostUrl) {
       throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
     }
@@ -71,9 +71,9 @@ export default defineNuxtModule<ModuleOptions>({
     // Transpile runtime
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     nuxt.options.build.transpile.push(runtimeDir)
-
-    if (options.instantSearch) {
-      nuxt.options.build.transpile.push('vue-instantsearch/vue3')
+    
+      if (options.instantSearch) {
+        nuxt.options.build.transpile.push('vue-instantsearch/vue3/es')
 
       if (typeof options.instantSearch === 'object') {
         const { theme } = options.instantSearch
@@ -89,10 +89,11 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin(resolve(runtimeDir, 'plugin'))
 
-    nuxt.hook('autoImports:dirs', (dirs) => {
-      dirs.push(resolve(runtimeDir, 'composables'))
-    })
+    addImportsDir(resolve(runtimeDir, 'composables'))
 
-    // console.log('`[nuxt-meilisearch]` module is load 🚀')
+
+    nuxt.hook('ready', async nuxt => {
+      console.log('`[nuxt-meilisearch]` module is load 🚀')
+    })
   }
 })
