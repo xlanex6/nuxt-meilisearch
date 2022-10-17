@@ -33,11 +33,9 @@ import {
   AisInstantSearch,
   AisConfigure,
   AisHits,
-  AisSearchBox,
-  AisRefinementList
+  AisSearchBox
 } from 'vue-instantsearch/vue3/es'
 
 const client = useMeilisearchClient()
-
 
 </script>
