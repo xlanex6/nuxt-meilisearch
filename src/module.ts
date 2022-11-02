@@ -2,6 +2,7 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import defu from 'defu'
 import { defineNuxtModule, addServerHandler, addPlugin, addImportsDir, useLogger } from '@nuxt/kit'
+import type { NuxtModule } from '@nuxt/schema'
 
 enum InstantSearchThemes {
   'reset',
