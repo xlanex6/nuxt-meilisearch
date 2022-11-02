@@ -99,7 +99,5 @@ export default defineNuxtModule<ModuleOptions>({
       }
       addServerHandler(serverHandler)
     }
-
-    logger.success('Module setup complete')
   }
 })
