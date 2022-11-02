@@ -29,7 +29,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-meilisearch',
     configKey: 'meilisearch',
     compatibility: {
-      nuxt: '3.0.0-rc.11'
+      nuxt: '^3.0.0-rc.9'
     }
   },
   defaults: {
@@ -100,6 +100,6 @@ export default defineNuxtModule<ModuleOptions>({
       addServerHandler(serverHandler)
     }
 
-    // logger.success('Module setup complete')
+    logger.success('Module setup complete')
   }
 })
