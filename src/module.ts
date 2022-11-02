@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import defu from 'defu'
-import { defineNuxtModule, addPlugin, addImportsDir } from '@nuxt/kit'
+import { defineNuxtModule, addServerHandler, addPlugin, addImportsDir, useLogger } from '@nuxt/kit'
 
 enum InstantSearchThemes {
   'reset',
@@ -11,7 +11,9 @@ enum InstantSearchThemes {
 
 export interface ModuleOptions {
   hostUrl: string,
-  apiKey: string,
+  readApiKey: string,
+  writeApiKey?: string,
+  serverSideUsage: boolean,
   instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
   clientOptions?: {
     placeholderSearch?: boolean,
@@ -32,7 +34,9 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     hostUrl: '',
-    apiKey: '',
+    readApiKey: '',
+    writeApiKey: '',
+    serverSideUsage: false,
     instantSearch: {
       theme: 'algolia'
     },
@@ -45,54 +49,57 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
   },
-  async setup (options, nuxt) {
-    if (!options.hostUrl) {
+  setup (moduleOptions, nuxt) {
+    const logger = useLogger('Nuxt-Meilisearch')
+    logger.success('Module init...')
+
+    if (!moduleOptions.hostUrl) {
       throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
     }
 
-    if (!options.apiKey) {
-      throw new Error('`[nuxt-meilisearch]` Missing `apiKey`')
+    if (!moduleOptions.readApiKey) {
+      throw new Error('`[nuxt-meilisearch]` Missing `readApiKey`')
     }
 
-    // Default runtimeConfig
-    nuxt.options.runtimeConfig.public.meilisearch = defu(nuxt.options.runtimeConfig.public.meilisearch, {
-      hostUrl: options.hostUrl,
-      apiKey: options.apiKey,
-      instantSearch: options.instantSearch,
-      options: {
-        placeholderSearch: options.clientOptions.placeholderSearch,
-        paginationTotalHits: options.clientOptions.paginationTotalHits,
-        finitePagination: options.clientOptions.finitePagination,
-        primaryKey: options.clientOptions.primaryKey,
-        keepZeroFacets: options.clientOptions.keepZeroFacets
-      }
-    })
+    const { writeApiKey, ...publicSafeModuleOptions } = moduleOptions
+    nuxt.options.runtimeConfig.public.meilisearchClient = defu(nuxt.options.runtimeConfig.public.meilisearchClient, publicSafeModuleOptions)
+
+    nuxt.options.runtimeConfig.serverMeilisearchClient = moduleOptions
 
     // Transpile runtime
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
+
     nuxt.options.build.transpile.push(runtimeDir)
 
-      if (options.instantSearch) {
-        nuxt.options.build.transpile.push('vue-instantsearch/vue3/es')
+    if (moduleOptions.instantSearch) {
+      nuxt.options.build.transpile.push('vue-instantsearch/vue3/es')
 
-      if (typeof options.instantSearch === 'object') {
-        const { theme } = options.instantSearch
+      if (typeof moduleOptions.instantSearch === 'object') {
+        const { theme } = moduleOptions.instantSearch
         if (theme) {
           if (theme in InstantSearchThemes) {
             nuxt.options.css.push(`instantsearch.css/themes/${theme}.css`)
           } else {
-            console.error('`[nuxt-meilisearch]` Invalid theme:', theme)
+            logger.error('`[nuxt-meilisearch]` Invalid theme:', theme)
           }
         }
       }
     }
 
-
     addImportsDir(resolve(runtimeDir, 'composables'))
 
+    if (moduleOptions.serverSideUsage) {
+      if (!moduleOptions.writeApiKey) {
+        throw new Error('`[nuxt-meilisearch]` Missing `writeApiKey`')
+      }
+      const handler = resolve(runtimeDir, 'serverMeilisearchClient')
+      const serverHandler = {
+        middelware: true,
+        handler
+      }
+      addServerHandler(serverHandler)
+    }
 
-    nuxt.hook('ready', async nuxt => {
-      console.log('`[nuxt-meilisearch]` module is load 🚀')
-    })
+    // logger.success('Module setup complete')
   }
 })

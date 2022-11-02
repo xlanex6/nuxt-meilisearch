@@ -40,6 +40,7 @@ export default defineNuxtConfig({
     hostUrl: '<YOUR_MEILISEARCH_HOST_URL>', //required
     apiKey: '<YOUR_MEILISEARCH_API_KEY>', //required
     instantSearch: true, // default true
+    serverSideUsage:  false// default false
     // optional
     clientOptions: {
       placeholderSearch: true, // default
