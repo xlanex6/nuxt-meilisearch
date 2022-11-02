@@ -19,6 +19,10 @@ nuxt-meilisearch
  - [Nuxt 3](https://v3.nuxtjs.org)
  - Easy integration with [MeilisearchJS lib](https://github.com/meilisearch/instant-meilisearch)
  - Support for Vue [Algolia Vue 3 InstantSearch](https://github.com/algolia/vue-instantsearch) components (optional) 
+ - Manage Meilisearch from Nuxt server side 
+
+
+ ⚠️⚠️⚠️  BREACKING CHANGE ON MODULE PARAMETER ⚠️⚠️⚠️
 
  ## Setup 
 
@@ -38,8 +42,9 @@ export default defineNuxtConfig({
     'nuxt-meilisearch'
   ],
   meilisearch: {
-    hostUrl: '<YOUR_MEILISEARCH_HOST_URL>',
-    apiKey: '<YOUR_MEILISEARCH_API_KEY>',
+    readApiKey: '<your_public_key>',
+    writeApiKey: '<your_secret_key>',
+    serverSideUsage: true,
     instantSearch: {
       theme: 'algolia'
     }
@@ -95,14 +100,11 @@ Exemple:
 ```
 
 
-## Roadmap
 
 
-- [ ] 🚧 Use Meilisearch client on Server side to manipulate index and documents.
-- [ ] 🚧 Use tree shacking to optimize Algolia components size
-- [ ] 🚧 WIP -  Nice demo site
+## Development 
 
-## Development
+PR and ISSUES are welcome
 
 - Run `npm run dev:prepare` to generate type stubs.
 - Use `npm run dev` to start [playground](./playground) in development mode.

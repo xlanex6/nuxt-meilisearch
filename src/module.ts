@@ -63,7 +63,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     const { writeApiKey, ...publicSafeModuleOptions } = moduleOptions
-    nuxt.options.runtimeConfig.public.meilisearchClient = defu(nuxt.options.runtimeConfig.public.meilisearchClient, publicSafeModuleOptions)
+    nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
 
     nuxt.options.runtimeConfig.serverMeilisearchClient = moduleOptions
 
