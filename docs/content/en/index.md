@@ -6,7 +6,7 @@ category: ''
 features:
  - Easy integration with MeilisearchJS lib
  - Support for Vue Algolia Vue 3 InstantSearch components (optional)
- - 🚧  Server usage to index document (W.I.P.)
+ - Server usage to manage documents and all preferences ( index, preferences )
 ---
 
 Full integration of [Meilisearch](https://www.meilisearch.com) in module for [Nuxt](https://v3.nuxtjs.org)
