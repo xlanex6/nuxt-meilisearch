@@ -25,7 +25,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "docs": "cd docs && pnpm dev",
+    "docs": "cd docus && pnpm dev",
     "release": "nuxt-module-build && standard-version && git push --follow-tags && npm publish",
     "lint": "eslint --ext .js,.ts,.vue"
   },
