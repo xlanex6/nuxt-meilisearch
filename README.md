@@ -14,6 +14,10 @@ nuxt-meilisearch
 
 [Meilisearch](https://www.meilisearch.com) module for [Nuxt](https://v3.nuxtjs.org)
 
+## Full documentation 
+
+[Visit the module documentation site](https://nuxt-meilisearch-docs.netlify.app) to see all **features** details.
+
 ## Features
 
  - [Nuxt 3](https://v3.nuxtjs.org)
