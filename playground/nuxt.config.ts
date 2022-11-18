@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 import NuxtMeilisearch from '..'
 
 export default defineNuxtConfig({
