@@ -12,8 +12,8 @@ enum InstantSearchThemes {
 
 export interface ModuleOptions {
   hostUrl: string,
-  readApiKey: string,
-  writeApiKey?: string,
+  searchApiKey: string,
+  adminApiKey?: string,
   serverSideUsage: boolean,
   instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
   clientOptions?: {
@@ -35,8 +35,8 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     hostUrl: '',
-    readApiKey: '',
-    writeApiKey: '',
+    searchApiKey: '',
+    adminApiKey: '',
     serverSideUsage: false,
     instantSearch: {
       theme: 'algolia'
@@ -58,11 +58,11 @@ export default defineNuxtModule<ModuleOptions>({
       throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
     }
 
-    if (!moduleOptions.readApiKey) {
-      throw new Error('`[nuxt-meilisearch]` Missing `readApiKey`')
+    if (!moduleOptions.searchApiKey) {
+      throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
     }
 
-    const { writeApiKey, ...publicSafeModuleOptions } = moduleOptions
+    const { adminApiKey, ...publicSafeModuleOptions } = moduleOptions
     nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
 
     nuxt.options.runtimeConfig.serverMeilisearchClient = moduleOptions
@@ -90,8 +90,8 @@ export default defineNuxtModule<ModuleOptions>({
     addImportsDir(resolve(runtimeDir, 'composables'))
 
     if (moduleOptions.serverSideUsage) {
-      if (!moduleOptions.writeApiKey) {
-        throw new Error('`[nuxt-meilisearch]` Missing `writeApiKey`')
+      if (!moduleOptions.adminApiKey) {
+        throw new Error('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
       const handler = resolve(runtimeDir, 'serverMeilisearchClient')
       const serverHandler = {

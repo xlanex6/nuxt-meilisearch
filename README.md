@@ -48,8 +48,8 @@ export default defineNuxtConfig({
     'nuxt-meilisearch'
   ],
   meilisearch: {
-    readApiKey: '<your_public_key>',
-    writeApiKey: '<your_secret_key>',
+    searchApiKey: '<your_public_key>',
+    adminApiKey: '<your_secret_key>',
     serverSideUsage: true,
     instantSearch: {
       theme: 'algolia'

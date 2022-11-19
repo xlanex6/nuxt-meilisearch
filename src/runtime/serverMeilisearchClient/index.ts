@@ -3,11 +3,11 @@ import { MeiliSearch } from 'meilisearch'
 import useConfig from './config'
 
 export default defineEventHandler(async (event: H3Event) => {
-  const { hostUrl, writeApiKey } = useConfig()
+  const { hostUrl, adminApiKey } = useConfig()
   if (!event.context.serverMeilisearchClient) {
     event.context.serverMeilisearchClient = new MeiliSearch({
       host: hostUrl,
-      apiKey: writeApiKey
+      apiKey: adminApiKey
     })
   }
 
