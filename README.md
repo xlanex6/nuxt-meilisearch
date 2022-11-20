@@ -70,7 +70,7 @@ const client = useMeilisearchClient()
 
 Then is your template you can use all [Algolia Vue 3 Instantsearch](https://github.com/algolia/vue-instantsearch) components. 
 
-Exemple: 
+example: 
 
 ```vue
 <template>

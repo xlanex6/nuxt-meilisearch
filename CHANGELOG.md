@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **TS:** Ts config from exemple ([b6c65e5](https://github.com/xlanex6/nuxt-meilisearch/commit/b6c65e5a7579fec9623de5419221b83487f01eb2))
+* **TS:** Ts config from example ([b6c65e5](https://github.com/xlanex6/nuxt-meilisearch/commit/b6c65e5a7579fec9623de5419221b83487f01eb2))
 
 ### 0.0.2 (2022-05-08)
 
