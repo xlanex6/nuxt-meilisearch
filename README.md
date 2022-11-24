@@ -48,6 +48,7 @@ export default defineNuxtConfig({
     'nuxt-meilisearch'
   ],
   meilisearch: {
+    hostUrl:  'http://my-meilisearch-server.domain.com'
     searchApiKey: '<your_public_key>',
     adminApiKey: '<your_secret_key>',
     serverSideUsage: true,
