@@ -1,6 +1,6 @@
 {
   "name": "nuxt-meilisearch",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -30,10 +30,10 @@
     "lint": "eslint --ext .js,.ts,.vue"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.9.0",
+    "@meilisearch/instant-meilisearch": "0.10.1",
     "@nuxt/kit": "3.0.0",
     "instantsearch.css": "7.4.5",
-    "meilisearch": "0.29.1",
+    "meilisearch": "0.30.0",
     "vue-instantsearch": "4.6.0"
   },
   "devDependencies": {
