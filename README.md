@@ -26,7 +26,7 @@ nuxt-meilisearch
  - Manage Meilisearch from Nuxt server side 
 
 
- ⚠️⚠️⚠️  BREACKING CHANGE ON MODULE CONFIG From previous VERSION ⚠️⚠️⚠️
+ ⚠️⚠️⚠️  BREAKING CHANGE ON MODULE CONFIG From previous VERSION ⚠️⚠️⚠️
  
  Due about the new feature of server MeilisearchJS client capability
 
