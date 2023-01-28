@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-meilisearch",
-  "version": "0.1.7",
+  "name": "nuxt-meilisearch-typed",
+  "version": "0.1.8",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "@nuxt/module-builder": "latest",
     "@nuxt/schema": "^3.1.1",
     "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/node": "^18.11.18",
     "eslint": "latest",
     "nuxt": "^3.1.1",
     "standard-version": "9.5.0"
