@@ -1,25 +1,17 @@
 <template>
   <div>
-    Nuxt module playground for nuxt-meilisearch !
-
     <ais-instant-search
       :search-client="client"
-      index-name="movies"
+      index-name="books"
     >
       <ais-configure :hits-per-page.camel="10" />
-      <ais-search-box
-        placeholder="Search here…"
-        class="searchbox"
-      />
+      <ais-search-box placeholder="Search here…" class="searchbox" />
       <ais-hits>
         <template #default="{ items }">
           <ul>
-            <li
-              v-for="{id,title,poster} in items"
-              :key="id"
-            >
+            <li v-for="{ id, title , price} in items" :key="id">
               <h1>{{ title }}</h1>
-              <img :src="poster" :alt="`Poster from ${title}`">
+              <p>price: {{ price }} $</p>
             </li>
           </ul>
         </template>
@@ -29,6 +21,7 @@
 </template>
 
 <script setup>
+
 import {
   AisInstantSearch,
   AisConfigure,
