@@ -8,10 +8,10 @@ export default defineNuxtConfig({
   meilisearch: {
     hostUrl: 'http://0.0.0.0:7700',
     searchApiKey: '<your_public_key>',
-    adminApiKey: '<your_secret_key>',
-    serverSideUsage: true,
     instantSearch: {
-      theme: 'algolia'
-    }
+      theme: 'satellite'
+    },
+    serverSideUsage: true,
+    adminApiKey: '<your_secret_key>'
   }
 })
