@@ -2,18 +2,19 @@
   <div>
     <ais-instant-search
       :search-client="client"
-      index-name="books"
+      index-name="movies"
     >
       <ais-configure :hits-per-page.camel="10" />
       <ais-search-box placeholder="Search here…" class="searchbox" />
       <ais-hits>
         <template #default="{ items }">
-          <ul>
-            <li v-for="{ id, title , price} in items" :key="id">
+          <div v-for="{ id, title , overview, poster } in items" :key="id" class="card">
+            <img :src="poster" alt="" height="300">
+            <div>
               <h1>{{ title }}</h1>
-              <p>price: {{ price }} $</p>
-            </li>
-          </ul>
+              <p>{{ overview }}</p>
+            </div>
+          </div>
         </template>
       </ais-hits>
     </ais-instant-search>
@@ -32,3 +33,13 @@ import {
 const client = useMeilisearchClient()
 
 </script>
+<style>
+.card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.card img {
+  margin-right: 10px;
+}
+</style>

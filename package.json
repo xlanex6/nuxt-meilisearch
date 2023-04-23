@@ -31,18 +31,18 @@
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.12.0",
-    "@nuxt/kit": "3.3.3",
+    "@nuxt/kit": "3.4.2",
     "instantsearch.css": "8.0.0",
-    "meilisearch": "0.32.2",
-    "vue-instantsearch": "4.8.9"
+    "meilisearch": "0.32.3",
+    "vue-instantsearch": "4.8.10"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
-    "@nuxt/schema": "3.3.3",
+    "@nuxt/schema": "3.4.2",
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@types/node": "18.15.11",
+    "@types/node": "18.16.0",
     "eslint": "latest",
-    "nuxt": "3.3.3",
+    "nuxt": "3.4.2",
     "standard-version": "9.5.0"
   },
   "publishConfig": {
