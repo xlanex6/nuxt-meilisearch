@@ -98,7 +98,7 @@ export default defineNuxtModule<ModuleOptions>({
       }
       addServerHandler(serverHandler)
     }
-
+    // @ts-expect-error - private API
     nuxt.hook('devtools:customTabs', (tabs) => {
       tabs.push({
         name: 'meilisearch',
