@@ -12,7 +12,9 @@
     "allowSyntheticDefaultImports": true,
     "types": [
       "node",
-      "@nuxt/kit"
+      "@nuxt/kit",
+      "@nuxt/module-builder",
+      "@nuxt/schema"
     ],
     "paths": {
       "#app": [
