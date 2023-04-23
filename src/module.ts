@@ -1,8 +1,6 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
-import defu from 'defu'
-import { defineNuxtModule, addServerHandler, addPlugin, addImportsDir, useLogger } from '@nuxt/kit'
-import type { NuxtModule } from '@nuxt/schema'
+import { defineNuxtModule, addServerHandler, addImportsDir, useLogger } from '@nuxt/kit'
 
 enum InstantSearchThemes {
   'reset',
@@ -100,5 +98,21 @@ export default defineNuxtModule<ModuleOptions>({
       }
       addServerHandler(serverHandler)
     }
+
+    nuxt.hook('devtools:customTabs', (tabs) => {
+      tabs.push({
+        name: 'meilisearch',
+        // title to display in the tab
+        title: 'Meilisearch',
+        // any icon from Iconify, or a URL to an image
+        icon: 'https://raw.githubusercontent.com/meilisearch/meilisearch/main/assets/logo.svg',
+        // iframe view
+        view: {
+          type: 'iframe',
+          src: `${moduleOptions.hostUrl}`
+        }
+      })
+    })
   }
+
 })
