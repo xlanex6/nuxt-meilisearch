@@ -11,9 +11,9 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs",
-      "types": "./dist/types.d.ts"
+      "require": "./dist/module.cjs"
     }
   },
   "main": "./dist/module.cjs",
@@ -25,10 +25,16 @@
     "prepack": "nuxt-module-build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "docs": "cd docus && pnpm dev",
-    "release": "nuxt-module-build && standard-version && git push --follow-tags && npm publish",
-    "lint": "eslint --ext .js,.ts,.vue"
+    "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "pnpm lint && pnpm test && bumpp && pnpm publish",
+    "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
+    "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
+    "lint:all:prettier": "pnpm lint:prettier \"{src,test}/**/*.{js,json,ts}\"",
+    "lint:eslint": "eslint --fix",
+    "lint:prettier": "prettier --write --loglevel warn",
+    "test": "vitest run",
+    "test:types": "tsc --noEmit",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.13.2",
@@ -38,13 +44,13 @@
     "vue-instantsearch": "4.10.1"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "latest",
+    "@nuxt/module-builder": "0.4.0",
     "@nuxt/schema": "3.5.3",
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/node": "20.2.5",
+    "bumpp": "9.1.1",
     "eslint": "latest",
-    "nuxt": "3.5.3",
-    "standard-version": "9.5.0"
+    "nuxt": "3.5.3"
   },
   "publishConfig": {
     "access": "public"
@@ -60,5 +66,6 @@
     "vue-instantsearch",
     "nuxt",
     "module"
-  ]
+  ],
+  "packageManager": "pnpm@8.6.0"
 }
