@@ -12,7 +12,8 @@
   "exports": {
     ".": {
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "types": "./dist/types.d.ts"
     }
   },
   "main": "./dist/module.cjs",
@@ -30,19 +31,19 @@
     "lint": "eslint --ext .js,.ts,.vue"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.12.0",
-    "@nuxt/kit": "3.4.2",
+    "@meilisearch/instant-meilisearch": "0.13.2",
+    "@nuxt/kit": "3.5.3",
     "instantsearch.css": "8.0.0",
-    "meilisearch": "0.32.3",
-    "vue-instantsearch": "4.8.10"
+    "meilisearch": "0.33.0",
+    "vue-instantsearch": "4.10.1"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
-    "@nuxt/schema": "3.4.2",
+    "@nuxt/schema": "3.5.3",
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@types/node": "18.16.0",
+    "@types/node": "20.2.5",
     "eslint": "latest",
-    "nuxt": "3.4.2",
+    "nuxt": "3.5.3",
     "standard-version": "9.5.0"
   },
   "publishConfig": {
