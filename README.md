@@ -22,7 +22,7 @@ nuxt-meilisearch
 
  - [Nuxt 3](https://v3.nuxtjs.org)
  - Easy integration with [MeilisearchJS lib](https://github.com/meilisearch/instant-meilisearch)
- - Support for Vue [Algolia Vue 3 InstantSearch](https://github.com/algolia/vue-instantsearch) components (optional) 
+ - Support for Vue [Algolia InstantSearch](https://github.com/algolia/instantsearch) components (optional) 
  - Manage Meilisearch from Nuxt server side 
 
 
