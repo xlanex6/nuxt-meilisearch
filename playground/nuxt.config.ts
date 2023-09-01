@@ -6,12 +6,12 @@ export default defineNuxtConfig({
     NuxtMeilisearch
   ],
   meilisearch: {
-    hostUrl: 'https://ms-15a4f248a340-186.fra.meilisearch.io',
-    searchApiKey: 'e88fb878569817bdba1d0093cebd41850ce07a44ee457f11fbde9411b1d24cd5',
+    hostUrl: 'http://localhost:7700',
+    searchApiKey: 'g1DP1Sd0YdvLIW8Qli9e4iV5taFxglg0CmnZckhhOR0',
     instantSearch: {
       theme: 'satellite'
     },
     serverSideUsage: true,
-    adminApiKey: 'masterKey'
+    adminApiKey: 'g1DP1Sd0YdvLIW8Qli9e4iV5taFxglg0CmnZckhhOR0'
   }
 })
