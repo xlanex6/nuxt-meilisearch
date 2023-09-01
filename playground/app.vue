@@ -12,7 +12,6 @@
             <!-- <img :src="poster" alt="" height="300"> -->
             <div>
               <h1>{{ title }}</h1>
-              <p>{{ overview }}</p>
             </div>
           </div>
         </template>
@@ -21,7 +20,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   AisInstantSearch,
   AisConfigure,

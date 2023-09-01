@@ -2,11 +2,7 @@ import {
   defineNuxtModule, addServerHandler, addImportsSources, createResolver
 } from '@nuxt/kit'
 
-enum InstantSearchThemes {
-  'reset',
-  'algolia',
-  'satellite',
-}
+
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -24,7 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
     instantSearch: {
       theme: 'algolia'
     },
-    clientOptions: {
+    options: {
       placeholderSearch: true,
       paginationTotalHits: 50,
       finitePagination: true,
