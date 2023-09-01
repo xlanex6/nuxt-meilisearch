@@ -11,6 +11,7 @@ pnpm-lock.yaml
 
 # meilisearch 
 /data.ms
+/meili_data/
 
 # Yarn
 **/.yarn/cache

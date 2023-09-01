@@ -1,4 +1,4 @@
-import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
+import { instantMeiliSearch, SearchClient } from '@meilisearch/instant-meilisearch'
 import { useRuntimeConfig, useNuxtApp } from '#app'
 
 export const useMeilisearchClient = () => {
@@ -10,5 +10,5 @@ export const useMeilisearchClient = () => {
     nuxtApp._meilisearchClient = instantMeiliSearch(hostUrl, searchApiKey, clientOptions)
   }
 
-  return nuxtApp._meilisearchClient
+  return nuxtApp._meilisearchClient as SearchClient
 }

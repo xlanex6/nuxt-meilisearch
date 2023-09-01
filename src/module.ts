@@ -8,21 +8,6 @@ enum InstantSearchThemes {
   'satellite',
 }
 
-export interface ModuleOptions {
-  hostUrl: string,
-  searchApiKey: string,
-  adminApiKey?: string,
-  serverSideUsage?: boolean,
-  instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
-  clientOptions?: {
-    placeholderSearch?: boolean,
-    paginationTotalHits?: number,
-    finitePagination?: boolean,
-    primaryKey?: string,
-    keepZeroFacets?: boolean
-  }
-}
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-meilisearch',
@@ -49,24 +34,20 @@ export default defineNuxtModule<ModuleOptions>({
 
   },
   setup (options, nuxt) {
-    // if (!options.hostUrl) {
-    //   throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
-    // }
+    if (!options.hostUrl) {
+      // throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
+    }
 
-    // if (!options.searchApiKey) {
-    //   throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
-    // }
+    if (!options.searchApiKey) {
+      throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
+    }
 
     const { adminApiKey, ...publicSafeModuleOptions } = options
     nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
 
     nuxt.options.runtimeConfig.serverMeilisearchClient = options
 
-    // Transpile runtime
-    // const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     const resolver = createResolver(import.meta.url)
-
-    // nuxt.options.build.transpile.push(runtimeDir)
 
     if (options.instantSearch) {
       nuxt.options.build.transpile.push('vue-instantsearch/vue3/es')
@@ -82,8 +63,6 @@ export default defineNuxtModule<ModuleOptions>({
         }
       }
     }
-
-    // addImportsDir(resolver.resolve('./runtime/composables'))
 
     addImportsSources({
       from: resolver.resolve('./runtime/composables/index'),
@@ -102,6 +81,8 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.hook('prepare:types', ({ references }) => {
         references.push({
           path: resolver.resolve('./runtime/meilisearch.d.ts')
+        }, {
+          path: resolver.resolve('./runtime/instantsearch.d.ts')
         })
       })
     }
