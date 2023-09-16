@@ -40,7 +40,7 @@
     "@nuxt/module-builder": "latest",
     "@nuxt/schema": "3.4.2",
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@types/node": "18.16.0",
+    "@types/node": "18.17.17",
     "eslint": "latest",
     "nuxt": "3.4.2",
     "standard-version": "9.5.0"
