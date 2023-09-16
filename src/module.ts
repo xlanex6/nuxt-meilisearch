@@ -36,11 +36,11 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup (options, nuxt) {
     if (!options.hostUrl) {
-      throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
+      console.warn('`[nuxt-meilisearch]` Missing hostUrl`')
     }
 
     if (!options.searchApiKey) {
-      throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
+      console.warn('`[nuxt-meilisearch]` Missing `searchApiKey`')
     }
 
     const { adminApiKey, ...publicSafeModuleOptions } = options // eslint-disable-line
