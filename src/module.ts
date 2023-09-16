@@ -43,7 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
       throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
     }
 
-    const { adminApiKey, ...publicSafeModuleOptions } = options
+    const { adminApiKey, ...publicSafeModuleOptions } = options // eslint-disable-line
     nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
 
     nuxt.options.runtimeConfig.serverMeilisearchClient = options
