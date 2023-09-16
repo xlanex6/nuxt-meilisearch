@@ -1,6 +1,6 @@
 {
   "name": "nuxt-meilisearch",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -26,18 +26,15 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "pnpm lint && pnpm test && bumpp && pnpm publish",
-    "lint": "pnpm lint:all:eslint && pnpm lint:all:prettier",
-    "lint:all:eslint": "pnpm lint:eslint --ext .ts,.js,.mjs,.cjs .",
-    "lint:all:prettier": "pnpm lint:prettier \"{src,test}/**/*.{js,json,ts}\"",
-    "lint:eslint": "eslint --fix",
-    "lint:prettier": "prettier --write --loglevel warn",
+    "release": "pnpm lint && bumpp && pnpm publish",
+    "lint": "eslint .",
     "test": "vitest run",
     "test:types": "tsc --noEmit",
     "test:watch": "vitest watch"
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.13.5",
+    "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/kit": "3.7.3",
     "instantsearch.css": "8.0.0",
     "meilisearch": "0.34.2",
