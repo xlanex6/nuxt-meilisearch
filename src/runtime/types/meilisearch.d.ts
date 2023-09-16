@@ -12,7 +12,7 @@ export interface ModuleOptions {
   adminApiKey?: string,
   serverSideUsage?: boolean,
   instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
-  clientOptions?: {
+  meilisearchConfig?: {
     placeholderSearch?: boolean,
     paginationTotalHits?: number,
     finitePagination?: boolean,

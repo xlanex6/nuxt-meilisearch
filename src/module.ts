@@ -2,7 +2,12 @@ import {
   defineNuxtModule, addServerHandler, addImportsSources, createResolver
 } from '@nuxt/kit'
 
-
+import type { ModuleOptions } from '../src/runtime/types/meilisearch.d'
+enum InstantSearchThemes {
+  'reset',
+  'algolia',
+  'satellite',
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -20,7 +25,7 @@ export default defineNuxtModule<ModuleOptions>({
     instantSearch: {
       theme: 'algolia'
     },
-    options: {
+    meilisearchConfig: {
       placeholderSearch: true,
       paginationTotalHits: 50,
       finitePagination: true,
@@ -30,13 +35,13 @@ export default defineNuxtModule<ModuleOptions>({
 
   },
   setup (options, nuxt) {
-    if (!options.hostUrl) {
-      // throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
-    }
+    // if (!options.hostUrl) {
+    //   throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
+    // }
 
-    if (!options.searchApiKey) {
-      throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
-    }
+    // if (!options.searchApiKey) {
+    //   throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
+    // }
 
     const { adminApiKey, ...publicSafeModuleOptions } = options
     nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
