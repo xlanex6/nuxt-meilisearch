@@ -35,13 +35,13 @@ export default defineNuxtModule<ModuleOptions>({
 
   },
   setup (options, nuxt) {
-    // if (!options.hostUrl) {
-    //   throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
-    // }
+    if (!options.hostUrl) {
+      throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
+    }
 
-    // if (!options.searchApiKey) {
-    //   throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
-    // }
+    if (!options.searchApiKey) {
+      throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
+    }
 
     const { adminApiKey, ...publicSafeModuleOptions } = options
     nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
