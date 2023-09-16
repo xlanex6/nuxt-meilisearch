@@ -1,4 +1,4 @@
-[![xlanex6/nuxt-meilisearch](./docus/public/preview.png)](https://nuxt-meilisearch-docs.netlify.app/)
+[![xlanex6/nuxt-meilisearch](./docus/public/preview.png)](https://nuxt-meilisearch.vercel.app/)
 
 
 <h1 align='center'>
@@ -16,7 +16,7 @@ nuxt-meilisearch
 
 ## Full documentation 
 
-[Visit the module documentation site](https://nuxt-meilisearch-docs.netlify.app) to see all **features** details.
+[Visit the module documentation site](https://nuxt-meilisearch.vercel.app) to see all **features** details.
 
 ## Features
 
