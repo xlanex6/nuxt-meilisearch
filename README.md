@@ -133,3 +133,16 @@ PR and ISSUES are welcome
 [codecov-href]: https://codecov.io/gh/nuxt-community/partytown-module
 [license-src]: https://img.shields.io/npm/l/@nuxtjs/partytown.svg
 [license-href]: https://npmjs.com/package/@nuxtjs/partytown -->
+
+
+For Meilisearch DEmo 
+exemple valid MASTER_KEY
+`PZKj1rFXYBnjLzEIxXRRaEz3gNDWTG3JoW6ZDzd6-mo`
+
+```bash
+docker run -it --rm \
+  -p 7700:7700 \
+  -e MEILI_MASTER_KEY='PZKj1rFXYBnjLzEIxXRRaEz3gNDWTG3JoW6ZDzd6-mo'\
+  -v $(pwd)/meili_data:/meili_data \
+  getmeili/meilisearch:v1.3
+```

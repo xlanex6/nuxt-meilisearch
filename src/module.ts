@@ -1,26 +1,12 @@
-import { resolve } from 'path'
-import { fileURLToPath } from 'url'
-import { defineNuxtModule, addServerHandler, addImportsDir, useLogger } from '@nuxt/kit'
+import {
+  defineNuxtModule, addServerHandler, addImportsSources, createResolver
+} from '@nuxt/kit'
 
+import type { ModuleOptions } from '../src/runtime/types/meilisearch.d'
 enum InstantSearchThemes {
   'reset',
   'algolia',
   'satellite',
-}
-
-export interface ModuleOptions {
-  hostUrl: string,
-  searchApiKey: string,
-  adminApiKey?: string,
-  serverSideUsage: boolean,
-  instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
-  clientOptions?: {
-    placeholderSearch?: boolean,
-    paginationTotalHits?: number,
-    finitePagination?: boolean,
-    primaryKey?: string,
-    keepZeroFacets?: boolean
-  }
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -39,7 +25,7 @@ export default defineNuxtModule<ModuleOptions>({
     instantSearch: {
       theme: 'algolia'
     },
-    clientOptions: {
+    meilisearchConfig: {
       placeholderSearch: true,
       paginationTotalHits: 50,
       finitePagination: true,
@@ -48,68 +34,69 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
   },
-  setup (moduleOptions, nuxt) {
-    const logger = useLogger('Nuxt-Meilisearch')
-    logger.success('Module init...')
-
-    if (!moduleOptions.hostUrl) {
+  setup (options, nuxt) {
+    if (!options.hostUrl) {
       throw new Error('`[nuxt-meilisearch]` Missing `hostUrl`')
     }
 
-    if (!moduleOptions.searchApiKey) {
+    if (!options.searchApiKey) {
       throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
     }
 
-    const { adminApiKey, ...publicSafeModuleOptions } = moduleOptions
+    const { adminApiKey, ...publicSafeModuleOptions } = options
     nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
 
-    nuxt.options.runtimeConfig.serverMeilisearchClient = moduleOptions
+    nuxt.options.runtimeConfig.serverMeilisearchClient = options
 
-    // Transpile runtime
-    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
+    const resolver = createResolver(import.meta.url)
 
-    nuxt.options.build.transpile.push(runtimeDir)
-
-    if (moduleOptions.instantSearch) {
+    if (options.instantSearch) {
       nuxt.options.build.transpile.push('vue-instantsearch/vue3/es')
 
-      if (typeof moduleOptions.instantSearch === 'object') {
-        const { theme } = moduleOptions.instantSearch
+      if (typeof options.instantSearch === 'object') {
+        const { theme } = options.instantSearch
         if (theme) {
           if (theme in InstantSearchThemes) {
             nuxt.options.css.push(`instantsearch.css/themes/${theme}.css`)
           } else {
-            logger.error('`[nuxt-meilisearch]` Invalid theme:', theme)
+            // logger.error('`[nuxt-meilisearch]` Invalid theme:', theme)
           }
         }
       }
     }
 
-    addImportsDir(resolve(runtimeDir, 'composables'))
+    addImportsSources({
+      from: resolver.resolve('./runtime/composables/index'),
+      imports: ['useMeilisearchClient']
+    })
 
-    if (moduleOptions.serverSideUsage) {
-      if (!moduleOptions.adminApiKey) {
+    if (options.serverSideUsage) {
+      if (!options.adminApiKey) {
         throw new Error('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
-      const handler = resolve(runtimeDir, 'serverMeilisearchClient')
-      const serverHandler = {
-        middelware: true,
-        handler
-      }
-      addServerHandler(serverHandler)
+      addServerHandler({
+        middleware: true,
+        handler: resolver.resolve('./runtime/server/index.ts')
+      })
+
+      nuxt.hook('prepare:types', ({ references }) => {
+        references.push({
+          path: resolver.resolve('./runtime/meilisearch.d.ts')
+        }, {
+          path: resolver.resolve('./runtime/instantsearch.d.ts')
+        })
+      })
     }
+
     // @ts-expect-error - private API
     nuxt.hook('devtools:customTabs', (tabs) => {
       tabs.push({
         name: 'meilisearch',
-        // title to display in the tab
         title: 'Meilisearch',
-        // any icon from Iconify, or a URL to an image
         icon: 'https://raw.githubusercontent.com/meilisearch/meilisearch/main/assets/logo.svg',
-        // iframe view
         view: {
           type: 'iframe',
-          src: `${moduleOptions.hostUrl}`
+          src: `${options.hostUrl}`
         }
       })
     })

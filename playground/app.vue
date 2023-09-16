@@ -2,17 +2,16 @@
   <div>
     <ais-instant-search
       :search-client="client"
-      index-name="movies"
+      index-name="books"
     >
       <ais-configure :hits-per-page.camel="10" />
       <ais-search-box placeholder="Search here…" class="searchbox" />
       <ais-hits>
         <template #default="{ items }">
-          <div v-for="{ id, title , overview, poster } in items" :key="id" class="card">
-            <img :src="poster" alt="" height="300">
+          <div v-for="{ id, title , price, genre } in items" :key="id" class="card">
+            <!-- <img :src="poster" alt="" height="300"> -->
             <div>
               <h1>{{ title }}</h1>
-              <p>{{ overview }}</p>
             </div>
           </div>
         </template>
@@ -21,8 +20,7 @@
   </div>
 </template>
 
-<script setup>
-
+<script setup lang="ts">
 import {
   AisInstantSearch,
   AisConfigure,

@@ -7,7 +7,7 @@ Starter template for [Docus](https://docus.dev).
 Clone the repository (using `nuxi`):
 
 ```bash
-npx nuxi init docs -t nuxt-themes/docus-starter
+npx nuxi init -t themes/docus
 ```
 
 ## Setup
