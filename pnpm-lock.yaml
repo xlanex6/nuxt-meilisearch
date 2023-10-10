@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: true
@@ -15,14 +15,14 @@ dependencies:
     specifier: 3.7.3
     version: 3.7.3(rollup@3.29.2)
   instantsearch.css:
-    specifier: 8.0.0
-    version: 8.0.0
+    specifier: 8.1.0
+    version: 8.1.0
   meilisearch:
     specifier: 0.34.2
     version: 0.34.2
   vue-instantsearch:
-    specifier: 4.10.11
-    version: 4.10.11(algoliasearch@4.20.0)(vue@3.3.4)
+    specifier: 4.11.0
+    version: 4.11.0(algoliasearch@4.20.0)(vue@3.3.4)
 
 devDependencies:
   '@nuxt/module-builder':
@@ -147,15 +147,15 @@ packages:
       '@algolia/requester-common': 4.20.0
     dev: false
 
-  /@algolia/ui-components-highlight-vdom@1.2.1:
-    resolution: {integrity: sha512-IlYgIaCUEkz9ezNbwugwKv991oOHhveyq6nzL0F1jDzg1p3q5Yj/vO4KpNG910r2dwGCG3nEm5GtChcLnarhFA==}
+  /@algolia/ui-components-highlight-vdom@1.2.2:
+    resolution: {integrity: sha512-/+7jh7cd5rR2yQC7ME4SDcnAMiD1Ofn5Qq+E7afTJx9XSMOHkLR77/o6YcuJ60TfD1S+9lr7yjBLACon8gOuzQ==}
     dependencies:
-      '@algolia/ui-components-shared': 1.2.1
+      '@algolia/ui-components-shared': 1.2.2
       '@babel/runtime': 7.22.15
     dev: false
 
-  /@algolia/ui-components-shared@1.2.1:
-    resolution: {integrity: sha512-a7mYHf/GVQfhAx/HRiMveKkFvHspQv/REdG+C/FIOosiSmNZxX7QebDwJkrGSmDWdXO12D0Qv1xn3AytFcEDlQ==}
+  /@algolia/ui-components-shared@1.2.2:
+    resolution: {integrity: sha512-FYwEG5sbr8p4V8mqP0iUaKgmWfcrMXRXwp7e6iBuB65P/7QyL8pT4I6/iGb85Q5mNH+UtYYSmLZhKjEblllKEQ==}
     dev: false
 
   /@ampproject/remapping@2.2.1:
@@ -1922,8 +1922,8 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
 
-  /algoliasearch-helper@3.14.1(algoliasearch@4.20.0):
-    resolution: {integrity: sha512-TZihm6eisSqgLWOXpISAUFXAolJvEpa1gkTjUUEDmVl+TTiQuNvzLQ/osOiqIXzx6QSS4Pd6Ry+SKKOwiqJ17g==}
+  /algoliasearch-helper@3.14.2(algoliasearch@4.20.0):
+    resolution: {integrity: sha512-FjDSrjvQvJT/SKMW74nPgFpsoPUwZCzGbCqbp8HhBFfSk/OvNFxzCaCmuO0p7AWeLy1gD+muFwQEkBwcl5H4pg==}
     peerDependencies:
       algoliasearch: '>= 3.1 < 6'
     dependencies:
@@ -3838,24 +3838,24 @@ packages:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
     dev: true
 
-  /instantsearch.css@8.0.0:
-    resolution: {integrity: sha512-yU63cF9KdkyFFh7ynYQy39nh1MD1eVDHIaa/gdm8a/O9dTG/5P6hBF1ONoIbKTtjlxxsHS2S8MarCZZ0l31ajg==}
+  /instantsearch.css@8.1.0:
+    resolution: {integrity: sha512-rPhcAZ02bLwUn3iOXbldZW/yl+17guWoH3qWYZ8nQEwNBx5+wZ6Bv8mFqqK448+R2aU4nbFKIhmoTIPXI5Zobg==}
     dev: false
 
-  /instantsearch.js@4.56.11(algoliasearch@4.20.0):
-    resolution: {integrity: sha512-SEV2qCee/lTPIa4B18ajV+ICkWCnQOyrQZE1HITXIOLpmwWpHEV5wjB3rxaW7bIY1DsQ+6p6DpWLVSMRYXPiNA==}
+  /instantsearch.js@4.58.0(algoliasearch@4.20.0):
+    resolution: {integrity: sha512-Y5vERyhoE1jEWew33OdsRbB24q2Pexft4/HK6a+QOO22C3qoGIkc3i4rP8RbB4kecDvkziFi/YCGE5t1B6J3eg==}
     peerDependencies:
       algoliasearch: '>= 3.1 < 6'
     dependencies:
       '@algolia/events': 4.0.1
-      '@algolia/ui-components-highlight-vdom': 1.2.1
-      '@algolia/ui-components-shared': 1.2.1
+      '@algolia/ui-components-highlight-vdom': 1.2.2
+      '@algolia/ui-components-shared': 1.2.2
       '@types/dom-speech-recognition': 0.0.1
       '@types/google.maps': 3.54.1
       '@types/hogan.js': 3.0.2
       '@types/qs': 6.9.8
       algoliasearch: 4.20.0
-      algoliasearch-helper: 3.14.1(algoliasearch@4.20.0)
+      algoliasearch-helper: 3.14.2(algoliasearch@4.20.0)
       hogan.js: 3.0.2
       htm: 3.1.1
       preact: 10.17.1
@@ -6581,8 +6581,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /vue-instantsearch@4.10.11(algoliasearch@4.20.0)(vue@3.3.4):
-    resolution: {integrity: sha512-lLUS6tMc9wAhSyHvmnOMjOrrPsumnZuINqTFeAYyOEzdgjmy1+77a2M/PuyQrsoI7XRTa3ZRV33DzviBr+RLsQ==}
+  /vue-instantsearch@4.11.0(algoliasearch@4.20.0)(vue@3.3.4):
+    resolution: {integrity: sha512-rIu3FJ5u0TOGw7PywxGrJXD7SGF+hW9YuTVLogCMReoBgaR+HgmSrGjXekYd0EjOALdHSn/IryHijgyAAFOhdg==}
     peerDependencies:
       '@vue/server-renderer': ^3.1.2
       algoliasearch: '>= 3.32.0 < 5'
@@ -6595,7 +6595,7 @@ packages:
         optional: true
     dependencies:
       algoliasearch: 4.20.0
-      instantsearch.js: 4.56.11(algoliasearch@4.20.0)
+      instantsearch.js: 4.58.0(algoliasearch@4.20.0)
       mitt: 2.1.0
       vue: 3.3.4
     dev: false
