@@ -1,6 +1,6 @@
 {
   "name": "nuxt-meilisearch",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -52,7 +52,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://nuxt-meilisearch-docs.netlify.app/",
+  "homepage": "https://nuxt-meilisearch-docs.vercel.app/",
   "directories": {
     "doc": "docs",
     "example": "playground"
