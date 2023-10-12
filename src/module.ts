@@ -72,7 +72,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (options.serverSideUsage) {
       if (!options.adminApiKey) {
-        throw new Error('`[nuxt-meilisearch]` Missing `adminApiKey`')
+        console.warn('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
       addServerHandler({
         middleware: true,
