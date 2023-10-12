@@ -144,5 +144,5 @@ docker run -it --rm \
   -p 7700:7700 \
   -e MEILI_MASTER_KEY='PZKj1rFXYBnjLzEIxXRRaEz3gNDWTG3JoW6ZDzd6-mo'\
   -v $(pwd)/meili_data:/meili_data \
-  getmeili/meilisearch:v1.3
+  getmeili/meilisearch:v1.4
 ```
