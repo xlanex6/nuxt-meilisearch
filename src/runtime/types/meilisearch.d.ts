@@ -9,8 +9,8 @@ enum InstantSearchThemes {
 export interface ModuleOptions {
   hostUrl: string,
   searchApiKey: string,
-  adminApiKey?: string,
-  serverSideUsage?: boolean,
+  adminApiKey?: string | undefined,
+  serverSideUsage?: boolean | undefined,
   instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
   meilisearchConfig?: {
     placeholderSearch?: boolean,
