@@ -58,8 +58,6 @@ export default defineNuxtModule<ModuleOptions>({
         if (theme) {
           if (theme in InstantSearchThemes) {
             nuxt.options.css.push(`instantsearch.css/themes/${theme}.css`)
-          } else {
-            // logger.error('`[nuxt-meilisearch]` Invalid theme:', theme)
           }
         }
       }
