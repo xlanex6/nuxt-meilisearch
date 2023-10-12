@@ -20,18 +20,6 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     hostUrl: '',
     searchApiKey: '',
-    adminApiKey: '',
-    serverSideUsage: false,
-    instantSearch: {
-      theme: 'algolia'
-    },
-    meilisearchConfig: {
-      placeholderSearch: true,
-      paginationTotalHits: 50,
-      finitePagination: true,
-      primaryKey: undefined,
-      keepZeroFacets: false
-    }
 
   },
   setup (options, nuxt) {

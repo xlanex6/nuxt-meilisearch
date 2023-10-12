@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     instantSearch: {
       theme: 'satellite'
     },
-    serverSideUsage: false,
-    // adminApiKey: '9bf1e67b96d3a9aba9eceb89902cc5f81fcc065a13833052db7b5551b3b181b4'
+    serverSideUsage: true,
+    adminApiKey: '9bf1e67b96d3a9aba9eceb89902cc5f81fcc065a13833052db7b5551b3b181b4'
   }
 })

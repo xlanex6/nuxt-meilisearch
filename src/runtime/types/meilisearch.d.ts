@@ -9,8 +9,8 @@ enum InstantSearchThemes {
 export interface ModuleOptions {
   hostUrl: string,
   searchApiKey: string,
-  adminApiKey?: string | undefined,
-  serverSideUsage?: boolean | undefined,
+  adminApiKey?: string,
+  serverSideUsage?: boolean,
   instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes },
   meilisearchConfig?: {
     placeholderSearch?: boolean,
@@ -27,14 +27,14 @@ declare module 'h3' {
   }
 }
 
+// declare module 'vue-instantsearch/vue3/es'
 
-declare module '*.vue' {
-  import { defineComponent } from 'vue'
+// declare module '*.vue' {
+//   import { defineComponent } from 'vue'
 
-  const component: ReturnType<typeof defineComponent>
-  export default component
-}
+//   const component: ReturnType<typeof defineComponent>
+//   export default component
+// }
 
-declare module 'vue-instantsearch/vue3/es'
 
 // https://github.com/meilisearch/instant-meilisearch/blob/main/packages/instant-meilisearch/src/types/types.ts
