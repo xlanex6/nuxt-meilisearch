@@ -12,6 +12,6 @@ export default defineNuxtConfig({
       theme: 'satellite'
     },
     serverSideUsage: true,
-    adminApiKey: '9bf1e67b96d3a9aba9eceb89902cc5f81fcc065a13833052db7b5551b3b181b4'
+    adminApiKey: 'bfcb4330385d222886e29fed1721b8107acdba8043a4bf0738eb6d10ccbb5dfb'
   }
 })
