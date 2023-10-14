@@ -1,8 +1,10 @@
 import {
   defineNuxtModule, addServerHandler, addImportsSources, createResolver
 } from '@nuxt/kit'
+import { defu } from 'defu'
 
-import type { ModuleOptions } from '../src/runtime/types/meilisearch.d'
+import type { ModuleOptions } from './runtime/types/meilisearch.d'
+// import { config } from 'process'
 enum InstantSearchThemes {
   'reset',
   'algolia',
@@ -60,9 +62,22 @@ export default defineNuxtModule<ModuleOptions>({
       if (!options.adminApiKey) {
         console.warn('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
-      addServerHandler({
-        middleware: true,
-        handler: resolver.resolve('./runtime/server/index.ts')
+      // addServerHandler({
+      //   middleware: true,
+      //   handler: resolver.resolve('./runtime/server/index.ts')
+      // })
+      nuxt.hook('nitro:config', config => { 
+        // config.externals = defu(config.externals, {
+        //   inline: [resolver.resolve('./runtime/server')],
+        // }),
+        config.imports = defu(config.imports, {
+          presets: [
+            {
+              from: resolver.resolve('./runtime/server/utils/meilisearch.ts'),
+              imports: ['$meilisearch']}
+            
+          ]
+        })
       })
 
       nuxt.hook('prepare:types', ({ references }) => {
