@@ -1,24 +1,19 @@
 export default defineAppConfig({
   docus: {
-    title: 'Docus',
-    description: 'The best place to start your documentation.',
-    image: 'https://user-images.githubusercontent.com/904724/185365452-87b7ca7b-6030-4813-a2db-5e65c785bf88.png',
+    title: 'Nuxt Meilisearch',
+    description: 'The Nuxt Meilisearch module allows you to easily integrate Meilisearch into your Nuxt project',
+    // image: '/docus/public/logo.png',
     socials: {
-      twitter: 'nuxt_js',
-      github: 'nuxt-themes/docus',
-      nuxt: {
-        label: 'Nuxt',
-        icon: 'simple-icons:nuxtdotjs',
-        href: 'https://nuxt.com'
-      }
+      twitter: 'xlanex6',
+      github: 'xlanex6/nuxt-meilisearch',
     },
-    github: {
-      dir: '.starters/default/content',
-      branch: 'main',
-      repo: 'docus',
-      owner: 'nuxt-themes',
-      edit: true
-    },
+    // github: {
+    //   dir: '.starters/default/content',
+    //   branch: 'main',
+    //   repo: 'docus',
+    //   owner: 'nuxt-themes',
+    //   edit: true
+    // },
     aside: {
       level: 0,
       collapsed: false,
