@@ -1,5 +1,5 @@
 import {
-  defineNuxtModule, addServerHandler, addImportsSources, createResolver
+  defineNuxtModule, addImportsSources, createResolver
 } from '@nuxt/kit'
 import { defu } from 'defu'
 
@@ -62,14 +62,7 @@ export default defineNuxtModule<ModuleOptions>({
       if (!options.adminApiKey) {
         console.warn('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
-      // addServerHandler({
-      //   middleware: true,
-      //   handler: resolver.resolve('./runtime/server/index.ts')
-      // })
       nuxt.hook('nitro:config', config => { 
-        // config.externals = defu(config.externals, {
-        //   inline: [resolver.resolve('./runtime/server')],
-        // }),
         config.imports = defu(config.imports, {
           presets: [
             {
@@ -80,14 +73,15 @@ export default defineNuxtModule<ModuleOptions>({
         })
       })
 
-      nuxt.hook('prepare:types', ({ references }) => {
-        references.push({
-          path: resolver.resolve('./runtime/meilisearch.d.ts')
-        }, {
-          path: resolver.resolve('./runtime/instantsearch.d.ts')
-        })
-      })
     }
+
+    nuxt.hook('prepare:types', ({ references }) => {
+      references.push({
+        path: resolver.resolve('./runtime/meilisearch.d.ts')
+      }, {
+        path: resolver.resolve('./runtime/instantsearch.d.ts')
+      })
+    })
 
     // @ts-expect-error - private API
     nuxt.hook('devtools:customTabs', (tabs) => {
