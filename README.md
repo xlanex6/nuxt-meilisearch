@@ -6,7 +6,8 @@ nuxt-meilisearch
 </h1>
 <p align='center'>
 
-[![Latest Stable Version](https://img.shields.io/npm/v/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) [![License](https://img.shields.io/npm/l/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) [![Twitter Follow](https://img.shields.io/twitter/follow/xlanex6?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/xlanex6)
+[![Latest Stable Version](https://img.shields.io/npm/v/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) [![License](https://img.shields.io/npm/l/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) 
+[![Twitter Follow](https://img.shields.io/twitter/follow/xlanex6?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/xlanex6)
 
 </p>
 
@@ -20,15 +21,17 @@ nuxt-meilisearch
 
 ## Features
 
- - [Nuxt 3](https://v3.nuxtjs.org)
+ - Full [Nuxt 3](https://v3.nuxtjs.org) integration
+ - Auto Import composables `useMeiliSearch` and `useAsyncMeiliSearch` for SSR usage
+ - Manage Meilisearch from Nuxt server side
+ - Full TypeScript support
  - Easy integration with [MeilisearchJS lib](https://github.com/meilisearch/instant-meilisearch)
  - Support for Vue [Algolia InstantSearch](https://github.com/algolia/instantsearch) components (optional) 
- - Manage Meilisearch from Nuxt server side 
 
 
  ⚠️⚠️⚠️  BREAKING CHANGE ON MODULE CONFIG From previous VERSION ⚠️⚠️⚠️
  
- Due about the new feature of server MeilisearchJS client capability
+ Version 1.0.0 of this module introduce a breaking change on the module config.
 
  ## Setup 
 
@@ -40,21 +43,16 @@ npm install --save-dev nuxt-meilisearch  // yarn add --dev nuxt-meilisearch
 
 Add it to the modules section of nuxt.config.ts
 
- ```ts
-import { defineNuxtConfig } from 'nuxt'
-
+ ```ts{}[nuxt.config.ts]
 export default defineNuxtConfig({
   modules: [
     'nuxt-meilisearch'
   ],
   meilisearch: {
-    hostUrl:  'http://my-meilisearch-server.domain.com',
-    searchApiKey: '<your_public_key>',
-    adminApiKey: '<your_secret_key>',
-    serverSideUsage: true,
-    instantSearch: {
-      theme: 'algolia'
-    }
+    hostUrl:  'http://my-meilisearch-server.domain.com', //required
+    searchApiKey: '<your_public_key>', // required
+    adminApiKey: '<your_secret_key>', // optional
+    serverSideUsage: true // default false
 })
 ```
 
@@ -69,42 +67,6 @@ const client = useMeilisearchClient()
 
 ```
 
-Then is your template you can use all [Algolia InstantSearch](https://github.com/algolia/instantsearch) components. 
-
-example: 
-
-```vue
-<template>
-  <div>
-    Nuxt module playground for nuxt-meilisearch !
-
-    <ais-instant-search
-      :search-client="client"
-      index-name="movies"
-    >
-      <ais-configure :hits-per-page.camel="10" />
-      <ais-search-box
-        placeholder="Search here…"
-        class="searchbox"
-      ></ais-search-box>
-      <ais-hits>
-        <template v-slot="{ items }">
-          <ul>
-            <li
-              v-for="{id,title,poster} in items"
-              :key="id"
-            >
-              <h1>{{ title }}</h1>
-              <img :src="poster" :alt="`Poster from ${title}`">
-            </li>
-          </ul>
-        </template>
-      </ais-hits>
-
-    </ais-instant-search>
-  </div>
-</template>
-```
 
 
 
@@ -134,7 +96,7 @@ PR and ISSUES are welcome
 [license-src]: https://img.shields.io/npm/l/@nuxtjs/partytown.svg
 [license-href]: https://npmjs.com/package/@nuxtjs/partytown -->
 
-
+<!-- 
 For Meilisearch DEmo 
 exemple valid MASTER_KEY
 `PZKj1rFXYBnjLzEIxXRRaEz3gNDWTG3JoW6ZDzd6-mo`
@@ -145,4 +107,4 @@ docker run -it --rm \
   -e MEILI_MASTER_KEY='PZKj1rFXYBnjLzEIxXRRaEz3gNDWTG3JoW6ZDzd6-mo'\
   -v $(pwd)/meili_data:/meili_data \
   getmeili/meilisearch:v1.4
-```
+``` -->
