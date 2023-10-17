@@ -1,10 +1,10 @@
 import {
-  defineNuxtModule, createResolver, addImportsDir
+  defineNuxtModule, createResolver, addImportsSources, addImportsDir
 } from '@nuxt/kit'
 import { defu } from 'defu'
 
 import type { ModuleOptions } from './runtime/types/meilisearch.d'
-// import { config } from 'process'
+
 enum InstantSearchThemes {
   'reset',
   'algolia',
@@ -22,21 +22,23 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     hostUrl: '',
     searchApiKey: '',
+    serverSideUsage: false,
+    instantSearch: false
 
   },
   setup (options, nuxt) {
     if (!options.hostUrl) {
-      console.warn('`[nuxt-meilisearch]` Missing hostUrl`')
+      throw new Error('`[nuxt-meilisearch]` Missing hostUrl`')
     }
 
     if (!options.searchApiKey) {
-      console.warn('`[nuxt-meilisearch]` Missing `searchApiKey`')
+      throw new Error('`[nuxt-meilisearch]` Missing `searchApiKey`')
     }
 
     const { adminApiKey, ...publicSafeModuleOptions } = options // eslint-disable-line
-    nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
+    nuxt.options.runtimeConfig.public.meilisearchClient = defu(nuxt.options.runtimeConfig.public.meilisearchClient, publicSafeModuleOptions)
 
-    nuxt.options.runtimeConfig.serverMeilisearchClient = options
+    nuxt.options.runtimeConfig.serverMeilisearchClient = defu(nuxt.options.runtimeConfig.serverMeilisearchClient, options)
 
     const resolver = createResolver(import.meta.url)
 
@@ -53,16 +55,11 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    // addImportsSources({
-    //   from: resolver.resolve('./runtime/composables/index'),
-    //   imports: ['useInstantSearch', 'useMeiliSearch']
-    // })
-
     addImportsDir(resolver.resolve('./runtime/composables'))
 
     if (options.serverSideUsage) {
       if (!options.adminApiKey) {
-        console.warn('`[nuxt-meilisearch]` Missing `adminApiKey`')
+        throw new Error('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
       nuxt.hook('nitro:config', config => { 
         config.imports = defu(config.imports, {
