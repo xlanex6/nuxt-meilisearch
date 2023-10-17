@@ -1,10 +1,10 @@
 import {
-  defineNuxtModule, addImportsSources, createResolver
+  defineNuxtModule, createResolver, addImportsSources, addImportsDir
 } from '@nuxt/kit'
 import { defu } from 'defu'
 
 import type { ModuleOptions } from './runtime/types/meilisearch.d'
-// import { config } from 'process'
+
 enum InstantSearchThemes {
   'reset',
   'algolia',
@@ -22,6 +22,8 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     hostUrl: '',
     searchApiKey: '',
+    serverSideUsage: false,
+    instantSearch: false
 
   },
   setup (options, nuxt) {
@@ -34,9 +36,9 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     const { adminApiKey, ...publicSafeModuleOptions } = options // eslint-disable-line
-    nuxt.options.runtimeConfig.public.meilisearchClient = publicSafeModuleOptions
+    nuxt.options.runtimeConfig.public.meilisearchClient = defu(nuxt.options.runtimeConfig.public.meilisearchClient, publicSafeModuleOptions)
 
-    nuxt.options.runtimeConfig.serverMeilisearchClient = options
+    nuxt.options.runtimeConfig.serverMeilisearchClient = defu(nuxt.options.runtimeConfig.serverMeilisearchClient, options)
 
     const resolver = createResolver(import.meta.url)
 
@@ -53,10 +55,7 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    addImportsSources({
-      from: resolver.resolve('./runtime/composables/index'),
-      imports: ['useMeilisearchClient']
-    })
+    addImportsDir(resolver.resolve('./runtime/composables'))
 
     if (options.serverSideUsage) {
       if (!options.adminApiKey) {

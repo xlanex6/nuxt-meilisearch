@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <ais-instant-search
+  <UContainer class="p-4">
+
+        <h1 class="text-center text-xl text-gray-600 mb-4">Perfom by `useInstantSearch` with Algolia</h1>
+
+    
+      <ais-instant-search
       :search-client="client"
       index-name="books"
     >
@@ -9,35 +13,25 @@
       <ais-hits>
         <template #default="{ items }">
           <div v-for="{ id, title , price, genre } in items" :key="id" class="card">
-            <!-- <img :src="poster" alt="" height="300"> -->
             <div>
               <h1>{{ title }}</h1>
             </div>
           </div>
         </template>
       </ais-hits>
-    </ais-instant-search>
-  </div>
+    </ais-instant-search> 
+
+  </UContainer>
 </template>
 
 <script setup lang="ts">
+
 import {
   AisInstantSearch,
   AisConfigure,
   AisHits,
   AisSearchBox
 } from 'vue-instantsearch/vue3/es'
-
-const client = useMeilisearchClient()
+const client = useInstantSearch()
 
 </script>
-<style>
-.card {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.card img {
-  margin-right: 10px;
-}
-</style>
