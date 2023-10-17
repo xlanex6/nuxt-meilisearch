@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <ais-instant-search
+  <UContainer class="p-4">
+    
+      <ais-instant-search
       :search-client="client"
       index-name="books"
     >
@@ -9,26 +10,26 @@
       <ais-hits>
         <template #default="{ items }">
           <div v-for="{ id, title , price, genre } in items" :key="id" class="card">
-            <!-- <img :src="poster" alt="" height="300"> -->
             <div>
               <h1>{{ title }}</h1>
             </div>
           </div>
         </template>
       </ais-hits>
-    </ais-instant-search>
-  </div>
+    </ais-instant-search> 
+
+  </UContainer>
 </template>
 
 <script setup lang="ts">
+
 import {
   AisInstantSearch,
   AisConfigure,
   AisHits,
   AisSearchBox
 } from 'vue-instantsearch/vue3/es'
-
-const client = useMeilisearchClient()
+const client = useInstantSearch()
 
 </script>
 <style>
