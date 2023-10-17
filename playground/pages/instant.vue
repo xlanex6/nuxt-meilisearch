@@ -35,13 +35,3 @@ import {
 const client = useInstantSearch()
 
 </script>
-<style>
-.card {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.card img {
-  margin-right: 10px;
-}
-</style>
