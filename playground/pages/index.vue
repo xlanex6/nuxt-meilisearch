@@ -27,7 +27,7 @@ const query = ref('')
 const params = reactive<SearchParams>({
   limit: 10,
   facets: ["*"],
-  filter: "",
+  filter: [],
   sort: ["price:desc"],
   attributesToHighlight: ["*"]
 })
