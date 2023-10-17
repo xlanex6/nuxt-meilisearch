@@ -60,9 +60,13 @@ export default defineNuxtConfig({
 
 You can load Meilisearch client with composables 
 
-```vue
+```vue{}[pages/index.vue]
 <script setup>
-const client = useMeilisearchClient()
+const { search, result } = useMeiliSearch('books') // `books` is the index name
+
+onMounted(async () => {
+  await search('harry');
+})
 </script>
 
 ```
