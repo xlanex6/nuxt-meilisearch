@@ -1,5 +1,5 @@
 import {
-  defineNuxtModule, addImportsSources, createResolver
+  defineNuxtModule, createResolver, addImportsDir
 } from '@nuxt/kit'
 import { defu } from 'defu'
 
@@ -53,10 +53,12 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    addImportsSources({
-      from: resolver.resolve('./runtime/composables/index'),
-      imports: ['useMeilisearchClient']
-    })
+    // addImportsSources({
+    //   from: resolver.resolve('./runtime/composables/index'),
+    //   imports: ['useInstantSearch', 'useMeiliSearch']
+    // })
+
+    addImportsDir(resolver.resolve('./runtime/composables'))
 
     if (options.serverSideUsage) {
       if (!options.adminApiKey) {
