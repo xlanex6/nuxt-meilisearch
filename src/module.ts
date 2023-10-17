@@ -1,5 +1,5 @@
 import {
-  defineNuxtModule, createResolver, addImportsSources, addImportsDir
+  defineNuxtModule, createResolver, addImportsDir
 } from '@nuxt/kit'
 import { defu } from 'defu'
 

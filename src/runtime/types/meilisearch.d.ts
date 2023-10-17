@@ -1,5 +1,3 @@
-import { MeiliSearch } from 'meilisearch'
-
 enum InstantSearchThemes {
   'reset',
   'algolia',
