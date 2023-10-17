@@ -1,5 +1,8 @@
 <template>
   <UContainer class="p-4">
+
+        <h1 class="text-center text-xl text-gray-600 mb-4">Perfom by `useInstantSearch` with Algolia</h1>
+
     
       <ais-instant-search
       :search-client="client"

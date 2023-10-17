@@ -1,10 +1,10 @@
 <template>
   <UContainer class="p-4">
 
-
+    <h1 class="text-center text-xl text-gray-600 mb-4">Perfom by `useMeiliSearch`</h1>
     <UInput type="text" v-model="query" placeholder="Search for a book Ex: Harry" size="xl" class="mb-4 max-w-lg m-auto" />
 
-    <!-- <UInput type="text" v-model="options.filter" placeholder="Filter" class=" max-w-sm" /> -->
+    <!-- <UInput type="text" v-model="params.filter" placeholder="Filter" class=" max-w-sm" /> -->
 
 
     <div class="grid grid-cols-3 gap-2 pt-4">
@@ -24,7 +24,7 @@ import { SearchParams } from 'meilisearch'
 const { search, result } = useMeiliSearch('books')
 
 const query = ref('')
-const options = reactive<SearchParams>({
+const params = reactive<SearchParams>({
   limit: 10,
   facets: ["*"],
   filter: "",
@@ -43,11 +43,11 @@ const genre = computed(() => {
 })
 
 function meiliSearch() {
-  search(query.value, { showRankingScore: true, ...options })
+  search(query.value, { showRankingScore: true, ...params })
 }
 
 
-watch([query, options], async (query) => {
+watch([query, params], async (query) => {
   meiliSearch()
 })
 

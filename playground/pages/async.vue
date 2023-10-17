@@ -1,8 +1,8 @@
 <template>
     <UContainer class="p-4">
 
-
-      <UInput type="text" v-model="query" placeholder="Search for a book Ex: Harry" size="xl" class="mb-4 max-w-lg m-auto" />
+      <h1 class="text-center text-xl text-gray-600 mb-4">Perfom by `useAsyncMeiliSearch`</h1>
+      <UInput type="text" v-model="query" placeholder="Disable due about Async Demo" disabled size="xl" class="mb-4 max-w-lg m-auto" />
 
       <UButton label="Refesh" @click="refresh"/> Use `refresh` from async hook 
 
@@ -15,18 +15,25 @@
       </div>
       <p v-show="result" class=" text-xs my-2">Results: {{ result?.estimatedTotalHits }} books in {{ result?.processingTimeMs }} ms</p>
 
+      <p>DEMO</p>
+      <pre>const {data: result , refresh } = await useAsyncMeiliSearch({
+  index: 'books',
+  query: '',
+  params: {
+    limit:2
+  }
+})</pre>
+
     </UContainer>
 </template>
 
 <script setup lang="ts">
 import { SearchParams } from 'meilisearch'
 
-// const { search, result } = useMeiliSearch('books')
-
 const {data: result , refresh } = await useAsyncMeiliSearch({
   index: 'books',
   query: '',
-  options: {
+  params: {
     limit:2
   }
 })

@@ -3,9 +3,9 @@
     <div class="bg-primary-500 py-2 uppercase text-white font-semibold shadow-lg">
       <UContainer>
         <div class="flex justify-center space-x-4">
-          <NuxtLink to="/">Basic</NuxtLink>
-          <NuxtLink to="/async">AsyncData</NuxtLink>
-          <NuxtLink to="/instant">Instant</NuxtLink>
+          <ULink exact active-class="text-pink-900" to="/">Basic</ULink>
+          <ULink exact active-class="text-pink-900" to="/async">AsyncData</ULink>
+          <ULink exact active-class="text-pink-900" to="/instant">Instant</ULink>
         </div>
       </UContainer>
     </div>
