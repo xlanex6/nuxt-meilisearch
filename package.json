@@ -54,7 +54,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://nuxt-meilisearch-docs.vercel.app/",
+  "homepage": "https://nuxt-meilisearch.vercel.app",
   "directories": {
     "doc": "docs",
     "example": "playground"
