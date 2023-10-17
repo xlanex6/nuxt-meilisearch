@@ -9,10 +9,12 @@ export const useMeiliSearch = (index: string) => {
   const client = useMeiliSearchRef()
   const result = useState(`${index}-search-result`,() => null as SearchResponse | null,)
 
-  const search = async (query: string, options?: SearchParams) => { 
+  const search = async (query: string, searchParams?: SearchParams) => { 
     
-    const resp = await client.index(index).search(query, options)
+    const resp = await client.index(index).search(query, searchParams)
     result.value = resp as SearchResponse
+
+    return resp
   }
   
   return {
