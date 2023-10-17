@@ -46,7 +46,7 @@
     "@nuxt/module-builder": "0.5.2",
     "@nuxt/schema": "3.7.4",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
-    "@types/node": "20.8.4",
+    "@types/node": "20.8.6",
     "bumpp": "9.2.0",
     "eslint": "8.51.0",
     "nuxt": "3.7.4"
