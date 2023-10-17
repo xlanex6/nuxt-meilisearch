@@ -10,6 +10,7 @@
     <div class="grid grid-cols-3 gap-2 pt-4">
       <UCard v-for="book in result?.hits"  >
         <h3 >{{ book.title }}</h3>
+        <p class=" capitalize text-sm text-gray-500">{{book.genre}}</p>
       </UCard>
     </div>
     <p class=" text-xs my-2">Results: {{ result?.estimatedTotalHits }} books in {{ result?.processingTimeMs }} ms</p>
