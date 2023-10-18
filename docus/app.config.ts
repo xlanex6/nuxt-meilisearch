@@ -1,7 +1,8 @@
 export default defineAppConfig({
   docus: {
     title: 'Nuxt Meilisearch',
-    description: 'The Nuxt Meilisearch module allows you to easily integrate Meilisearch into your Nuxt project',
+    description: 'Meilisearch integration to enable lightning-fast, and hyper-relevant search engine into Nuxt',
+    image: '/cover.png',
     socials: {
       twitter: 'xlanex6',
       github: 'xlanex6/nuxt-meilisearch',
