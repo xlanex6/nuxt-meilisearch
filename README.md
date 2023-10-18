@@ -1,4 +1,4 @@
-[![xlanex6/nuxt-meilisearch](./docus/public/preview.png)](https://nuxt-meilisearch.vercel.app/)
+[![xlanex6/nuxt-meilisearch](./docus/public/cover.png)](https://nuxt-meilisearch.vercel.app/)
 
 
 <h1 align='center'>
