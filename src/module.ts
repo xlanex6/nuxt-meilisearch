@@ -23,7 +23,8 @@ export default defineNuxtModule<ModuleOptions>({
     hostUrl: '',
     searchApiKey: '',
     serverSideUsage: false,
-    instantSearch: false
+    adminApiKey: '',
+    instantSearch: false,
 
   },
   setup (options, nuxt) {
@@ -82,7 +83,6 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    // @ts-expect-error - private API
     nuxt.hook('devtools:customTabs', (tabs) => {
       tabs.push({
         name: 'meilisearch',

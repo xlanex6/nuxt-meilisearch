@@ -19,12 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import { SearchParams } from 'meilisearch'
+// import { SearchParams } from 'meilisearch'
 
 const { search, result } = useMeiliSearch('books')
 
 const query = ref('')
-const params = reactive<SearchParams>({
+const params = reactive({
   limit: 10,
   facets: ["*"],
   filter: [],

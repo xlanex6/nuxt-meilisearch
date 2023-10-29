@@ -7,11 +7,11 @@ export default defineNuxtConfig({
   ],
   meilisearch: {
     hostUrl: 'http://localhost:7700',
-    searchApiKey: 'c0fe8e1b418fe186343ba29b6d6c0c2602a03ba6327668e4e5fb64a1c8b4031b',
+    searchApiKey: '2c746b4e6e56e6376588f4952d35c3348487346e3380fd9e12b725bb5c259707',
     instantSearch: {
       theme: 'satellite'
     },
-    serverSideUsage: false,
-    adminApiKey: '60aa0d273dce7d47e83c574dfea5559eadcc9e989f7226d8edddd58faf2ab59d'
+    serverSideUsage: true,
+    adminApiKey: 'bfcb4330385d222886e29fed1721b8107acdba8043a4bf0738eb6d10ccbb5dfb'
   }
 })
