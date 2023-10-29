@@ -63,10 +63,13 @@ export default defineNuxtModule<ModuleOptions>({
         console.warn('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
       nuxt.hook('nitro:config', config => { 
+        config.externals = defu(config.externals, {
+          inline: [resolver.resolve('./runtime/server')],
+        }),
         config.imports = defu(config.imports, {
           presets: [
             {
-              from: resolver.resolve('./runtime/server/utils/meilisearch.ts'),
+              from: resolver.resolve('./runtime/server/utils/meilisearch'),
               imports: ['$meilisearch']}
             
           ]
