@@ -33,7 +33,7 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.13.6",
+    "@meilisearch/instant-meilisearch": "1.0.0",
     "@nuxt/eslint-config": "0.2.0",
     "@nuxt/kit": "3.8.2",
     "defu": "6.1.3",
