@@ -1,39 +1,34 @@
 [![xlanex6/nuxt-meilisearch](./docus/public/cover.png)](https://nuxt-meilisearch.vercel.app/)
 
-
-<h1 align='center'>
-nuxt-meilisearch
-</h1>
 <p align='center'>
 
-[![Latest Stable Version](https://img.shields.io/npm/v/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) [![License](https://img.shields.io/npm/l/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) 
+[![Latest Stable Version](https://img.shields.io/npm/v/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) [![License](https://img.shields.io/npm/l/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch)
 [![Twitter Follow](https://img.shields.io/twitter/follow/xlanex6?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/xlanex6)
 
 </p>
 
----
+# Nuxt Meilisearch
 
-[Meilisearch](https://www.meilisearch.com) module for [Nuxt](https://v3.nuxtjs.org)
+Integrate [Meilisearch](https://meilisearch.com/?utm_campaign=oss&utm_source=github&utm_content=nuxt-meilisearch) fast and hyper-relevant search engine in your [Nuxt](https://nuxt.com) application.
 
-## Full documentation 
-
-[Visit the module documentation site](https://nuxt-meilisearch.vercel.app) to see all **features** details.
+Read [Nuxt Meilisearch documentation site](https://nuxt-meilisearch.vercel.app).
 
 ## Features
 
- - Full [Nuxt 3](https://v3.nuxtjs.org) integration
- - Auto Import composables `useMeiliSearch` and `useAsyncMeiliSearch` for SSR usage
- - Manage Meilisearch from Nuxt server side
- - Full TypeScript support
- - Easy integration with [MeilisearchJS lib](https://github.com/meilisearch/instant-meilisearch)
- - Support for Vue [Algolia InstantSearch](https://github.com/algolia/instantsearch) components (optional) 
+- Nuxt 3 integration
+- Auto-imported composables
+- Server-side rendering support
+- Client & server integration of Meilisearch
+- Full TypeScript support
+- Compatible with [Instant Meilisearch](https://github.com/meilisearch/instant-meilisearch)
+- Vue [Algolia InstantSearch](https://github.com/algolia/instantsearch) components (optional)
 
 
  ⚠️⚠️⚠️  BREAKING CHANGE ON MODULE CONFIG From previous VERSION ⚠️⚠️⚠️
- 
+
  Version 1.0.0 of this module introduce a breaking change on the module config.
 
- ## Setup 
+ ## Setup
 
  Install nuxt-meilisearch !
 
@@ -58,7 +53,7 @@ export default defineNuxtConfig({
 
 ## Usage
 
-You can load Meilisearch client with composables 
+You can load Meilisearch client with composables
 
 ```vue{}[pages/index.vue]
 <script setup>
@@ -75,7 +70,7 @@ onMounted(async () => {
 
 
 
-## Development 
+## Development
 
 PR and ISSUES are welcome
 
@@ -100,8 +95,8 @@ PR and ISSUES are welcome
 [license-src]: https://img.shields.io/npm/l/@nuxtjs/partytown.svg
 [license-href]: https://npmjs.com/package/@nuxtjs/partytown -->
 
-<!-- 
-For Meilisearch DEmo 
+<!--
+For Meilisearch DEmo
 exemple valid MASTER_KEY
 `PZKj1rFXYBnjLzEIxXRRaEz3gNDWTG3JoW6ZDzd6-mo`
 
