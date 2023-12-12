@@ -1,47 +1,47 @@
 [![xlanex6/nuxt-meilisearch](./docus/public/cover.png)](https://nuxt-meilisearch.vercel.app/)
 
-
-<h1 align='center'>
-nuxt-meilisearch
-</h1>
 <p align='center'>
 
-[![Latest Stable Version](https://img.shields.io/npm/v/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) [![License](https://img.shields.io/npm/l/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) 
+[![Latest Stable Version](https://img.shields.io/npm/v/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch) [![License](https://img.shields.io/npm/l/nuxt-meilisearch.svg?style=for-the-badge)](https://www.npmjs.com/package/nuxt-meilisearch)
 [![Twitter Follow](https://img.shields.io/twitter/follow/xlanex6?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/xlanex6)
 
 </p>
 
----
+# Nuxt Meilisearch
 
-[Meilisearch](https://www.meilisearch.com) module for [Nuxt](https://v3.nuxtjs.org)
+Integrate [Meilisearch](https://meilisearch.com/?utm_campaign=oss&utm_source=github&utm_content=nuxt-meilisearch) fast and hyper-relevant search engine in your [Nuxt](https://nuxt.com) application.
 
-## Full documentation 
-
-[Visit the module documentation site](https://nuxt-meilisearch.vercel.app) to see all **features** details.
+Read [Nuxt Meilisearch documentation](https://nuxt-meilisearch.vercel.app).
 
 ## Features
 
- - Full [Nuxt 3](https://v3.nuxtjs.org) integration
- - Auto Import composables `useMeiliSearch` and `useAsyncMeiliSearch` for SSR usage
- - Manage Meilisearch from Nuxt server side
- - Full TypeScript support
- - Easy integration with [MeilisearchJS lib](https://github.com/meilisearch/instant-meilisearch)
- - Support for Vue [Algolia InstantSearch](https://github.com/algolia/instantsearch) components (optional) 
+- Nuxt 3 integration
+- Auto-imported composables
+- Server-side rendering support
+- Client & server integration of Meilisearch
+- Full TypeScript support
+- Compatible with [Instant Meilisearch](https://github.com/meilisearch/instant-meilisearch)
+- Vue [Algolia InstantSearch](https://github.com/algolia/instantsearch) components (optional)
 
+## Installation
 
- ⚠️⚠️⚠️  BREAKING CHANGE ON MODULE CONFIG From previous VERSION ⚠️⚠️⚠️
- 
- Version 1.0.0 of this module introduce a breaking change on the module config.
+Install nuxt-meilisearch:
 
- ## Setup 
+```bash
+# with npm
+npm install nuxt-meilisearch
 
- Install nuxt-meilisearch !
+# with yarn
+yarn add nuxt-meilisearch
 
- ```bash
-npm install --save-dev nuxt-meilisearch  // yarn add --dev nuxt-meilisearch
- ```
+# with pnpm
+pnpm add nuxt-meilisearch
+```
 
-Add it to the modules section of nuxt.config.ts
+> [!WARNING]
+> v1.0 introduced a breaking change on the module configuration options.
+
+Then, update your `nuxt.config.ts`:
 
  ```ts{}[nuxt.config.ts]
 export default defineNuxtConfig({
@@ -49,35 +49,40 @@ export default defineNuxtConfig({
     'nuxt-meilisearch'
   ],
   meilisearch: {
-    hostUrl:  'http://my-meilisearch-server.domain.com', //required
-    searchApiKey: '<your_public_key>', // required
-    adminApiKey: '<your_secret_key>', // optional
-    serverSideUsage: true // default false
+    hostUrl:  '<your_meilisearch_host>', //required
+    searchApiKey: '<public_search_api_key>', // required
+    adminApiKey: '<admin_api_key>', // optional
+    serverSideUsage: true // default: false
 })
 ```
 
 ## Usage
 
-You can load Meilisearch client with composables 
+This example performs a search in the `books` index:
 
-```vue{}[pages/index.vue]
+```html{}[pages/index.vue]
 <script setup>
-const { search, result } = useMeiliSearch('books') // `books` is the index name
+const { search, result } = useMeiliSearch('books')
 
 onMounted(async () => {
   await search('harry');
 })
 </script>
 
+<template>
+  <div>
+    {{ result }}
+  </div>
+</template>
 ```
 
+Learn more in the [Nuxt Meilisearch documentation](https://nuxt-meilisearch.vercel.app).
 
+## Contributing
 
+Issues and pull requests are welcome. 🫶
 
-
-## Development 
-
-PR and ISSUES are welcome
+**Local development**
 
 - Run `npm run dev:prepare` to generate type stubs.
 - Use `npm run dev` to start [playground](./playground) in development mode.
@@ -100,8 +105,8 @@ PR and ISSUES are welcome
 [license-src]: https://img.shields.io/npm/l/@nuxtjs/partytown.svg
 [license-href]: https://npmjs.com/package/@nuxtjs/partytown -->
 
-<!-- 
-For Meilisearch DEmo 
+<!--
+For Meilisearch DEmo
 exemple valid MASTER_KEY
 `PZKj1rFXYBnjLzEIxXRRaEz3gNDWTG3JoW6ZDzd6-mo`
 
