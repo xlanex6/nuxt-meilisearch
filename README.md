@@ -11,7 +11,7 @@
 
 Integrate [Meilisearch](https://meilisearch.com/?utm_campaign=oss&utm_source=github&utm_content=nuxt-meilisearch) fast and hyper-relevant search engine in your [Nuxt](https://nuxt.com) application.
 
-Read [Nuxt Meilisearch documentation site](https://nuxt-meilisearch.vercel.app).
+Read [Nuxt Meilisearch documentation](https://nuxt-meilisearch.vercel.app).
 
 ## Features
 
@@ -23,20 +23,25 @@ Read [Nuxt Meilisearch documentation site](https://nuxt-meilisearch.vercel.app).
 - Compatible with [Instant Meilisearch](https://github.com/meilisearch/instant-meilisearch)
 - Vue [Algolia InstantSearch](https://github.com/algolia/instantsearch) components (optional)
 
+## Installation
 
- ⚠️⚠️⚠️  BREAKING CHANGE ON MODULE CONFIG From previous VERSION ⚠️⚠️⚠️
+Install nuxt-meilisearch:
 
- Version 1.0.0 of this module introduce a breaking change on the module config.
+```bash
+# with npm
+npm install nuxt-meilisearch
 
- ## Setup
+# with yarn
+yarn add nuxt-meilisearch
 
- Install nuxt-meilisearch !
+# with pnpm
+pnpm add nuxt-meilisearch
+```
 
- ```bash
-npm install --save-dev nuxt-meilisearch  // yarn add --dev nuxt-meilisearch
- ```
+> [!WARNING]
+> v1.0 introduced a breaking change on the module configuration options.
 
-Add it to the modules section of nuxt.config.ts
+Then, update your `nuxt.config.ts`:
 
  ```ts{}[nuxt.config.ts]
 export default defineNuxtConfig({
@@ -44,35 +49,40 @@ export default defineNuxtConfig({
     'nuxt-meilisearch'
   ],
   meilisearch: {
-    hostUrl:  'http://my-meilisearch-server.domain.com', //required
-    searchApiKey: '<your_public_key>', // required
-    adminApiKey: '<your_secret_key>', // optional
-    serverSideUsage: true // default false
+    hostUrl:  '<your_meilisearch_host>', //required
+    searchApiKey: '<public_search_api_key>', // required
+    adminApiKey: '<admin_api_key>', // optional
+    serverSideUsage: true // default: false
 })
 ```
 
 ## Usage
 
-You can load Meilisearch client with composables
+This example performs a search in the `books` index:
 
-```vue{}[pages/index.vue]
+```html{}[pages/index.vue]
 <script setup>
-const { search, result } = useMeiliSearch('books') // `books` is the index name
+const { search, result } = useMeiliSearch('books')
 
 onMounted(async () => {
   await search('harry');
 })
 </script>
 
+<template>
+  <div>
+    {{ result }}
+  </div>
+</template>
 ```
 
+Learn more in the [Nuxt Meilisearch documentation](https://nuxt-meilisearch.vercel.app).
 
+## Contributing
 
+Issues and pull requests are welcome. 🫶
 
-
-## Development
-
-PR and ISSUES are welcome
+**Local development**
 
 - Run `npm run dev:prepare` to generate type stubs.
 - Use `npm run dev` to start [playground](./playground) in development mode.
