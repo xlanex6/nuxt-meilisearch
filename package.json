@@ -46,7 +46,7 @@
     "@nuxt/schema": "3.8.2",
     "@nuxt/ui": "2.11.0",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
-    "@types/node": "20.10.0",
+    "@types/node": "20.11.13",
     "bumpp": "9.2.0",
     "eslint": "8.54.0",
     "nuxt": "3.8.2"
