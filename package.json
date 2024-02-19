@@ -35,21 +35,21 @@
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.13.6",
     "@nuxt/eslint-config": "0.2.0",
-    "@nuxt/kit": "3.8.2",
-    "defu": "6.1.3",
+    "@nuxt/kit": "3.10.2",
+    "defu": "6.1.4",
     "instantsearch.css": "8.1.0",
-    "meilisearch": "0.36.0",
+    "meilisearch": "0.37.0",
     "vue-instantsearch": "4.12.1"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "0.5.4",
-    "@nuxt/schema": "3.8.2",
-    "@nuxt/ui": "2.11.0",
+    "@nuxt/module-builder": "0.5.5",
+    "@nuxt/schema": "3.10.2",
+    "@nuxt/ui": "2.13.0",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
-    "@types/node": "20.10.0",
-    "bumpp": "9.2.0",
-    "eslint": "8.54.0",
-    "nuxt": "3.8.2"
+    "@types/node": "20.11.19",
+    "bumpp": "9.3.0",
+    "eslint": "8.56.0",
+    "nuxt": "3.10.2"
   },
   "publishConfig": {
     "access": "public"
