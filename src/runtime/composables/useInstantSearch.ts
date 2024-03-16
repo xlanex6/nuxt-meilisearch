@@ -7,7 +7,8 @@ export const useInstantSearch  = () => {
   const { meilisearchClient: { hostUrl, searchApiKey } } = useRuntimeConfig().public
 
   if (!nuxtApp._instantSearchClient) {
-    nuxtApp._instantSearchClient = instantMeiliSearch(hostUrl, searchApiKey)
+    const instantClient = instantMeiliSearch(hostUrl, searchApiKey)
+    nuxtApp._instantSearchClient = instantClient.searchClient
   }
 
   return nuxtApp._instantSearchClient as MeilisearchConfig
