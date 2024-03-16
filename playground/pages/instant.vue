@@ -24,7 +24,7 @@
   </UContainer>
 </template>
 
-<script setup lang="ts">
+<script setup>
 
 import {
   AisInstantSearch,
@@ -32,6 +32,7 @@ import {
   AisHits,
   AisSearchBox
 } from 'vue-instantsearch/vue3/es'
+
 const client = useInstantSearch()
 
 </script>
