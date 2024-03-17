@@ -30,10 +30,12 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup (options, nuxt) {
     if (!options.hostUrl) {
+      // eslint-disable-next-line no-console
       console.warn('`[nuxt-meilisearch]` Missing hostUrl`')
     }
 
     if (!options.searchApiKey) {
+      // eslint-disable-next-line no-console
       console.warn('`[nuxt-meilisearch]` Missing `searchApiKey`')
     }
 
@@ -61,19 +63,19 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (options.serverSideUsage) {
       if (!options.adminApiKey) {
+        // eslint-disable-next-line no-console
         console.warn('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
       nuxt.hook('nitro:config', (config) => {
         config.externals = defu(config.externals, {
           inline: [resolver.resolve('./runtime/server')]
-        }),
+        })
         config.imports = defu(config.imports, {
           presets: [
             {
               from: resolver.resolve('./runtime/server/utils/meilisearch'),
               imports: ['$meilisearch']
             }
-
           ]
         })
       })
