@@ -1,5 +1,5 @@
-import { useRuntimeConfig } from '#imports'
 import { MeiliSearch } from 'meilisearch'
+import { useRuntimeConfig } from '#imports'
 
 const { serverMeilisearchClient: { hostUrl, adminApiKey } } = useRuntimeConfig()
 

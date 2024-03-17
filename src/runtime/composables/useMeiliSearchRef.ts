@@ -1,7 +1,7 @@
 import { useRuntimeConfig, useNuxtApp } from '#app'
 import { MeiliSearch } from 'meilisearch'
 
-export const useMeiliSearchRef  = () => {
+export const useMeiliSearchRef = () => {
   const nuxtApp = useNuxtApp()
 
   const { meilisearchClient: { hostUrl, searchApiKey } } = useRuntimeConfig().public

@@ -25,10 +25,10 @@ export default defineNuxtModule<ModuleOptions>({
     searchApiKey: '',
     serverSideUsage: false,
     adminApiKey: '',
-    instantSearch: false,
+    instantSearch: false
 
   },
-  setup(options, nuxt) {
+  setup (options, nuxt) {
     if (!options.hostUrl) {
       console.warn('`[nuxt-meilisearch]` Missing hostUrl`')
     }
@@ -63,21 +63,20 @@ export default defineNuxtModule<ModuleOptions>({
       if (!options.adminApiKey) {
         console.warn('`[nuxt-meilisearch]` Missing `adminApiKey`')
       }
-      nuxt.hook('nitro:config', config => {
+      nuxt.hook('nitro:config', (config) => {
         config.externals = defu(config.externals, {
-          inline: [resolver.resolve('./runtime/server')],
+          inline: [resolver.resolve('./runtime/server')]
         }),
-          config.imports = defu(config.imports, {
-            presets: [
-              {
-                from: resolver.resolve('./runtime/server/utils/meilisearch'),
-                imports: ['$meilisearch']
-              }
+        config.imports = defu(config.imports, {
+          presets: [
+            {
+              from: resolver.resolve('./runtime/server/utils/meilisearch'),
+              imports: ['$meilisearch']
+            }
 
-            ]
-          })
+          ]
+        })
       })
-
     }
 
     nuxt.hook('prepare:types', ({ references }) => {
@@ -87,7 +86,7 @@ export default defineNuxtModule<ModuleOptions>({
         path: resolver.resolve('./runtime/instantsearch.d.ts')
       })
     })
-    
+
     addCustomTab({
       name: 'meilisearch',
       title: 'Meilisearch',
