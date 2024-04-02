@@ -44,7 +44,7 @@
   "devDependencies": {
     "@nuxt/module-builder": "0.5.5",
     "@nuxt/schema": "3.10.3",
-    "@nuxt/ui": "2.14.2",
+    "@nuxt/ui": "2.15.1",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
     "@types/node": "20.11.28",
     "bumpp": "9.4.0",
