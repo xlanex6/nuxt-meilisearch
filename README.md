@@ -28,14 +28,7 @@ Read [Nuxt Meilisearch documentation](https://nuxt-meilisearch.vercel.app).
 Install nuxt-meilisearch:
 
 ```bash
-# with npm
-npm install nuxt-meilisearch
-
-# with yarn
-yarn add nuxt-meilisearch
-
-# with pnpm
-pnpm add nuxt-meilisearch
+npx nuxi@latest module add meilisearch
 ```
 
 > [!WARNING]
