@@ -39,10 +39,20 @@ export default defineNuxtModule<ModuleOptions>({
 
       console.warn('`[nuxt-meilisearch]` Missing `searchApiKey`')
 
-    const { adminApiKey, ...publicSafeModuleOptions } = options // eslint-disable-line
-    nuxt.options.runtimeConfig.public.meilisearchClient = defu(nuxt.options.runtimeConfig.public.meilisearchClient, publicSafeModuleOptions)
+    nuxt.options.runtimeConfig.public.meilisearchClient = defu(nuxt.options.runtimeConfig.public.meilisearchClient, {
+      hostUrl: options.hostUrl,
+      searchApiKey: options.searchApiKey,
+      serverSideUsage: options.serverSideUsage,
+      instantSearch: options.instantSearch,
+    })
 
-    nuxt.options.runtimeConfig.serverMeilisearchClient = defu(nuxt.options.runtimeConfig.serverMeilisearchClient, options)
+    nuxt.options.runtimeConfig.serverMeilisearchClient = defu(nuxt.options.runtimeConfig.serverMeilisearchClient, {
+      hostUrl: options.hostUrl,
+      searchApiKey: options.searchApiKey,
+      serverSideUsage: options.serverSideUsage,
+      adminApiKey: options.adminApiKey,
+      instantSearch: options.instantSearch,
+    })
 
     const resolver = createResolver(import.meta.url)
 
