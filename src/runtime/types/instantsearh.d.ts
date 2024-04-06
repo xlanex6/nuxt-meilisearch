@@ -5,16 +5,9 @@ import type {
 } from '@algolia/client-search'
 import type {
   MultiSearchQuery as MeiliSearchMultiSearchParams,
-  Config as MeilisearchConfig,
   MultiSearchResult,
+  Config as MeilisearchConfig,
 } from 'meilisearch'
-// Type definitions for meilisearch
-// Project: https://github.com/meilisearch/meilisearch-js
-// Definitions by: qdequele <quentin@meilisearch.com> <https://github.com/meilisearch>
-// Definitions: https://github.com/meilisearch/meilisearch-js
-// TypeScript Version: ^3.8.3
-
-import type { Task } from '../task'
 
 export type { AlgoliaMultipleQueriesQuery, MultiSearchResult }
 export type {
@@ -57,7 +50,7 @@ export type InstantMeiliSearchOptions = Pick<
   finitePagination?: boolean
 }
 
-export interface InstantMeiliSearchConfig {
+export type InstantMeiliSearchConfig = {
   placeholderSearch: boolean
   keepZeroFacets: boolean
   clientAgents: string[]
@@ -66,7 +59,7 @@ export interface InstantMeiliSearchConfig {
   matchingStrategy?: MatchingStrategies
 }
 
-export interface SearchCacheInterface {
+export type SearchCacheInterface = {
   getEntry: <T>(key: string) => T | undefined
   formatKey: (components: any[]) => string
   setEntry: <T>(key: string, searchResponse: T) => void
@@ -76,13 +69,13 @@ export interface SearchCacheInterface {
 export type InsideBoundingBox = string | ReadonlyArray<readonly number[]>
 
 // Current state of the pagination
-export interface PaginationState {
+export type PaginationState = {
   finite: boolean
   hitsPerPage: number
   page: number
 }
 
-export interface InstantSearchPagination {
+export type InstantSearchPagination = {
   hitsPerPage: number
   page: number
   nbPages: number
@@ -106,7 +99,7 @@ export type SearchContext = Omit<InstantSearchParams, 'insideBoundingBox'> &
     matchingStrategy?: MatchingStrategies
   }
 
-export interface InstantSearchGeoParams {
+export type InstantSearchGeoParams = {
   aroundLatLng?: string
   aroundLatLngViaIP?: boolean
   aroundRadius?: number | 'all'
@@ -120,7 +113,7 @@ export type InstantMeiliSearchInstance = SearchClient & {
   clearCache: () => void
 }
 
-export interface MultiSearchResolver {
+export type MultiSearchResolver = {
   multiSearch: (
     searchQueries: MeiliSearchMultiSearchParams[],
     instantSearchPagination: PaginationState[]
@@ -148,8 +141,15 @@ export type AlgoliaFacetStats = Record<
     sum: number
   }
 >
+// Type definitions for meilisearch
+// Project: https://github.com/meilisearch/meilisearch-js
+// Definitions by: qdequele <quentin@meilisearch.com> <https://github.com/meilisearch>
+// Definitions: https://github.com/meilisearch/meilisearch-js
+// TypeScript Version: ^3.8.3
 
-export interface Config {
+import { Task } from '../task'
+
+export type Config = {
   host: string
   apiKey?: string
   clientAgents?: string[]
@@ -162,7 +162,7 @@ export interface Config {
 /// Resources
 ///
 
-export interface Pagination {
+export type Pagination = {
   offset?: number
   limit?: number
 }
@@ -178,11 +178,11 @@ export type ResourceResults<T> = Pagination & {
 /// Indexes
 ///
 
-export interface IndexOptions {
+export type IndexOptions = {
   primaryKey?: string
 }
 
-export interface IndexObject {
+export type IndexObject = {
   uid: string
   primaryKey?: string
   createdAt: Date
@@ -206,17 +206,17 @@ export type MatchingStrategies = typeof MatchingStrategies[keyof typeof Matching
 
 export type Filter = string | Array<string | string[]>
 
-export interface Query {
+export type Query = {
   q?: string | null
 }
 
-export interface Highlight {
+export type Highlight = {
   attributesToHighlight?: string[]
   highlightPreTag?: string
   highlightPostTag?: string
 }
 
-export interface Crop {
+export type Crop = {
   attributesToCrop?: string[]
   cropLength?: number
   cropMarker?: string
@@ -227,12 +227,12 @@ export type SearchForFacetValuesParams = Omit<SearchParams, 'facetName'> & {
   facetName: string
 }
 
-export interface FacetHit {
+export type FacetHit = {
   value: string
   count: number
 }
 
-export interface SearchForFacetValuesResponse {
+export type SearchForFacetValuesResponse = {
   facetHits: FacetHit[]
   facetQuery: string | null
   processingTimeMs: number
@@ -277,18 +277,18 @@ export type SearchRequestGET = Pagination &
 
 export type MultiSearchQuery = SearchParams & { indexUid: string }
 
-export interface MultiSearchParams {
+export type MultiSearchParams = {
   queries: MultiSearchQuery[]
 }
 
-export interface CategoriesDistribution {
+export type CategoriesDistribution = {
   [category: string]: number
 }
 
 export type Facet = string
 export type FacetDistribution = Record<Facet, CategoriesDistribution>
 export type MatchesPosition<T> = Partial<
-  Record<keyof T, Array<{ start: number, length: number }>>
+  Record<keyof T, Array<{ start: number; length: number }>>
 >
 
 export type Hit<T = Record<string, any>> = T & {
@@ -298,7 +298,7 @@ export type Hit<T = Record<string, any>> = T & {
   _rankingScoreDetails?: RankingScoreDetails
 }
 
-export interface RankingScoreDetails {
+export type RankingScoreDetails = {
   words?: {
     order: number
     matchingWords: number
@@ -331,12 +331,12 @@ export interface RankingScoreDetails {
 
 export type Hits<T = Record<string, any>> = Array<Hit<T>>
 
-export interface FacetStat { min: number, max: number }
+export type FacetStat = { min: number; max: number }
 export type FacetStats = Record<string, FacetStat>
 
 export type SearchResponse<
   T = Record<string, any>,
-  S extends SearchParams | undefined = undefined,
+  S extends SearchParams | undefined = undefined
 > = {
   hits: Hits<T>
   processingTimeMs: number
@@ -347,16 +347,16 @@ export type SearchResponse<
 } & (undefined extends S
   ? Partial<FinitePagination & InfinitePagination>
   : true extends IsFinitePagination<NonNullable<S>>
-    ? FinitePagination
-    : InfinitePagination)
+  ? FinitePagination
+  : InfinitePagination)
 
-interface FinitePagination {
+type FinitePagination = {
   totalHits: number
   hitsPerPage: number
   page: number
   totalPages: number
 }
-interface InfinitePagination {
+type InfinitePagination = {
   offset: number
   limit: number
   estimatedTotalHits: number
@@ -370,8 +370,8 @@ type IsFinitePagination<S extends SearchParams> = Or<
 type Or<A extends boolean, B extends boolean> = true extends A
   ? true
   : true extends B
-    ? true
-    : false
+  ? true
+  : false
 
 type HasHitsPerPage<S extends SearchParams> = undefined extends S['hitsPerPage']
   ? false
@@ -383,11 +383,11 @@ type HasPage<S extends SearchParams> = undefined extends S['page']
 
 export type MultiSearchResult<T> = SearchResponse<T> & { indexUid: string }
 
-export interface MultiSearchResponse<T = Record<string, any>> {
+export type MultiSearchResponse<T = Record<string, any>> = {
   results: Array<MultiSearchResult<T>>
 }
 
-export interface FieldDistribution {
+export type FieldDistribution = {
   [field: string]: number
 }
 
@@ -399,7 +399,7 @@ type Fields<T = Record<string, any>> =
   | Array<Extract<keyof T, string>>
   | Extract<keyof T, string>
 
-export interface DocumentOptions {
+export type DocumentOptions = {
   primaryKey?: string
 }
 
@@ -423,11 +423,11 @@ export type DocumentsQuery<T = Record<string, any>> = ResourceQuery & {
   filter?: Filter
 }
 
-export interface DocumentQuery<T = Record<string, any>> {
+export type DocumentQuery<T = Record<string, any>> = {
   fields?: Fields<T>
 }
 
-export interface DocumentsDeletionQuery {
+export type DocumentsDeletionQuery = {
   filter: Filter
 }
 
@@ -462,16 +462,16 @@ export type Dictionary = string[] | null
 
 export type FacetOrder = 'alpha' | 'count'
 
-export interface Faceting {
+export type Faceting = {
   maxValuesPerFacet?: number | null
   sortFacetValuesBy?: Record<string, FacetOrder> | null
 }
 
-export interface PaginationSettings {
+export type PaginationSettings = {
   maxTotalHits?: number | null
 }
 
-export interface Settings {
+export type Settings = {
   filterableAttributes?: FilterableAttributes
   distinctAttribute?: DistinctAttribute
   sortableAttributes?: SortableAttributes
@@ -514,7 +514,7 @@ export const enum TaskTypes {
   TASK_DELETION = 'taskDeletion',
 }
 
-export interface TasksQuery {
+export type TasksQuery = {
   indexUids?: string[]
   uids?: number[]
   types?: TaskTypes[]
@@ -532,7 +532,7 @@ export interface TasksQuery {
 export type CancelTasksQuery = Omit<TasksQuery, 'limit' | 'from'> & {}
 export type DeleteTasksQuery = Omit<TasksQuery, 'limit' | 'from'> & {}
 
-export interface EnqueuedTaskObject {
+export type EnqueuedTaskObject = {
   taskUid: number
   indexUid?: string
   status: TaskStatus
@@ -608,7 +608,7 @@ export type SwapIndexesParams = Array<{
   indexes: string[]
 }>
 
-interface CursorResults<T> {
+type CursorResults<T> = {
   results: T[]
   limit: number
   from: number
@@ -619,7 +619,7 @@ interface CursorResults<T> {
 export type TasksResults = CursorResults<Task>
 export type TasksResultsObject = CursorResults<TaskObject>
 
-export interface WaitOptions {
+export type WaitOptions = {
   timeOutMs?: number
   intervalMs?: number
 }
@@ -628,7 +628,7 @@ export interface WaitOptions {
  *** HEALTH
  */
 
-export interface Health {
+export type Health = {
   status: 'available'
 }
 
@@ -636,13 +636,13 @@ export interface Health {
  *** STATS
  */
 
-export interface IndexStats {
+export type IndexStats = {
   numberOfDocuments: number
   isIndexing: boolean
   fieldDistribution: FieldDistribution
 }
 
-export interface Stats {
+export type Stats = {
   databaseSize: number
   lastUpdate: string
   indexes: {
@@ -654,7 +654,7 @@ export interface Stats {
  ** Keys
  */
 
-export interface Key {
+export type Key = {
   uid: string
   description: string
   name: string | null
@@ -666,7 +666,7 @@ export interface Key {
   updatedAt: Date
 }
 
-export interface KeyCreation {
+export type KeyCreation = {
   uid?: string
   name?: string
   description?: string
@@ -675,7 +675,7 @@ export interface KeyCreation {
   expiresAt: Date | null
 }
 
-export interface KeyUpdate {
+export type KeyUpdate = {
   name?: string
   description?: string
 }
@@ -687,7 +687,7 @@ export type KeysResults = ResourceResults<Key[]> & {}
 /*
  ** version
  */
-export interface Version {
+export type Version = {
   commitSha: string
   commitDate: string
   pkgVersion: string
@@ -703,7 +703,7 @@ export interface FetchError extends Error {
   code: string
 }
 
-export interface MeiliSearchErrorInfo {
+export type MeiliSearchErrorInfo = {
   code: string
   link: string
   message: string
@@ -1051,13 +1051,13 @@ export const enum ErrorStatusCode {
   INVALID_FACET_SEARCH_FACET_QUERY = 'invalid_facet_search_facet_query',
 }
 
-export interface TokenIndexRules {
+export type TokenIndexRules = {
   [field: string]: any
   filter?: Filter
 }
 export type TokenSearchRules = Record<string, TokenIndexRules | null> | string[]
 
-export interface TokenOptions {
+export type TokenOptions = {
   apiKey?: string
   expiresAt?: Date
 }
