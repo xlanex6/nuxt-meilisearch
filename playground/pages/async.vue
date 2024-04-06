@@ -6,6 +6,8 @@ const { data: result, refresh } = await useAsyncMeiliSearch({
     limit: 2,
   },
 })
+
+const query = ref('')
 </script>
 
 <template>
@@ -18,7 +20,7 @@ const { data: result, refresh } = await useAsyncMeiliSearch({
     <UButton label="Refesh" @click="refresh" /> Use `refresh` from async hook
 
     <div class="grid grid-cols-3 gap-2 pt-4">
-      <UCard v-for="book in result?.hits">
+      <UCard v-for="book in result?.hits" :key="book.id">
         <h3>{{ book.title }}</h3>
         <p class=" capitalize text-sm text-gray-500">
           {{ book.genre }}

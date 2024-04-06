@@ -12,7 +12,7 @@ const params = reactive({
   attributesToHighlight: ['*'],
 })
 
-const genre = computed(() => {
+const _genre = computed(() => {
   const p = result.value?.facetDistribution?.genre || {}
   return Object.keys(p).map((key) => {
     return {
@@ -26,7 +26,7 @@ function meiliSearch() {
   search(query.value, { showRankingScore: true, ...params })
 }
 
-watch([query, params], async (query) => {
+watch([query, params], async () => {
   meiliSearch()
 })
 
@@ -45,7 +45,7 @@ onMounted(() => {
     <!-- <UInput type="text" v-model="params.filter" placeholder="Filter" class=" max-w-sm" /> -->
 
     <div class="grid grid-cols-3 gap-2 pt-4">
-      <UCard v-for="book in result?.hits">
+      <UCard v-for="book in result?.hits" :key="book.id">
         <h3>{{ book.title }}</h3>
         <p class=" capitalize text-sm text-gray-500">
           {{ book.genre }}
