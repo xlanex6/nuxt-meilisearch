@@ -4,6 +4,6 @@ export default defineNuxtConfig({
 
   modules: [
     // https://github.com/nuxt/devtools
-    '@nuxt/devtools'
-  ]
+    '@nuxt/devtools',
+  ],
 })

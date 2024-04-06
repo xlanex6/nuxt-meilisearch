@@ -1,38 +1,35 @@
+<script setup>
+import {
+  AisConfigure,
+  AisHits,
+  AisInstantSearch,
+  AisSearchBox,
+} from 'vue-instantsearch/vue3/es'
+
+const client = useInstantSearch()
+</script>
+
 <template>
   <UContainer class="p-4">
+    <h1 class="text-center text-xl text-gray-600 mb-4">
+      Perfom by `useInstantSearch` with Algolia
+    </h1>
 
-        <h1 class="text-center text-xl text-gray-600 mb-4">Perfom by `useInstantSearch` with Algolia</h1>
-
-    
-      <ais-instant-search
+    <AisInstantSearch
       :search-client="client"
       index-name="books"
     >
-      <ais-configure :hits-per-page.camel="10" />
-      <ais-search-box placeholder="Search here…" class="searchbox" />
-      <ais-hits>
+      <AisConfigure :hits-per-page.camel="10" />
+      <AisSearchBox placeholder="Search here…" class="searchbox" />
+      <AisHits>
         <template #default="{ items }">
-          <div v-for="{ id, title , price, genre } in items" :key="id" class="card">
+          <div v-for="{ id, title, price, genre } in items" :key="id" class="card">
             <div>
               <h1>{{ title }}</h1>
             </div>
           </div>
         </template>
-      </ais-hits>
-    </ais-instant-search> 
-
+      </AisHits>
+    </AisInstantSearch>
   </UContainer>
 </template>
-
-<script setup>
-
-import {
-  AisInstantSearch,
-  AisConfigure,
-  AisHits,
-  AisSearchBox
-} from 'vue-instantsearch/vue3/es'
-
-const client = useInstantSearch()
-
-</script>

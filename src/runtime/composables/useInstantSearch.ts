@@ -1,7 +1,8 @@
-import { instantMeiliSearch, MeilisearchConfig } from '@meilisearch/instant-meilisearch'
-import { useRuntimeConfig, useNuxtApp } from '#app'
+import type { MeilisearchConfig } from '@meilisearch/instant-meilisearch'
+import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
+import { useNuxtApp, useRuntimeConfig } from '#app'
 
-export const useInstantSearch = () => {
+export function useInstantSearch() {
   const nuxtApp = useNuxtApp()
 
   const { meilisearchClient: { hostUrl, searchApiKey } } = useRuntimeConfig().public
