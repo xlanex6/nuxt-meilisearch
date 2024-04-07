@@ -91,7 +91,6 @@ Issues and pull requests are welcome. 🫶
 
 [MIT Licence](./LICENCE)
 
-
 <!-- Badges -->
 
 <!-- [npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/partytown/latest.svg

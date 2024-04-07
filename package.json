@@ -1,14 +1,23 @@
 {
   "name": "nuxt-meilisearch",
+  "type": "module",
   "version": "1.2.15",
+  "packageManager": "pnpm@8.15.3",
+  "author": "Alex Duval",
   "license": "MIT",
+  "homepage": "https://nuxt-meilisearch.vercel.app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xlanex6/nuxt-meilisearch.git"
   },
-  "author": "Alex Duval",
   "contributors": [],
-  "type": "module",
+  "keywords": [
+    "meilisearch",
+    "search",
+    "vue-instantsearch",
+    "nuxt",
+    "module"
+  ],
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
@@ -22,49 +31,42 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build",
+    "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "pnpm lint && bumpp && pnpm publish",
-    "lint": "eslint .",
     "test": "vitest run",
     "test:types": "tsc --noEmit",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.17.0",
-    "@nuxt/eslint-config": "0.2.0",
-    "@nuxt/kit": "3.10.3",
-    "defu": "6.1.4",
-    "instantsearch.css": "8.1.0",
-    "meilisearch": "0.38.0",
-    "vue-instantsearch": "4.14.0"
+    "@meilisearch/instant-meilisearch": "^0.17.0",
+    "@nuxt/kit": "^3.11.2",
+    "instantsearch.css": "^8.1.0",
+    "meilisearch": "^0.38.0",
+    "vue-instantsearch": "^4.15.0"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "0.5.5",
-    "@nuxt/schema": "3.10.3",
-    "@nuxt/ui": "2.14.2",
-    "@nuxtjs/eslint-config-typescript": "12.1.0",
-    "@types/node": "20.11.28",
-    "bumpp": "9.4.0",
-    "eslint": "8.57.0",
-    "nuxt": "3.10.3"
+    "@antfu/eslint-config": "^2.12.2",
+    "@nuxt/eslint-config": "^0.3.1",
+    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/schema": "^3.11.2",
+    "@nuxt/ui": "^2.15.1",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@types/node": "^20.12.5",
+    "bumpp": "^9.4.0",
+    "defu": "^6.1.4",
+    "eslint": "^9.0.0",
+    "nuxt": "^3.11.2"
   },
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://nuxt-meilisearch.vercel.app",
   "directories": {
     "doc": "docs",
     "example": "playground"
-  },
-  "keywords": [
-    "meilisearch",
-    "search",
-    "vue-instantsearch",
-    "nuxt",
-    "module"
-  ],
-  "packageManager": "pnpm@8.6.0"
+  }
 }

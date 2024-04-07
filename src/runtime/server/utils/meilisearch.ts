@@ -5,5 +5,5 @@ const { serverMeilisearchClient: { hostUrl, adminApiKey } } = useRuntimeConfig()
 
 export const $meilisearch = new MeiliSearch({
   host: hostUrl,
-  apiKey: adminApiKey
+  apiKey: adminApiKey,
 })
