@@ -52,7 +52,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.12.2",
     "@nuxt/eslint-config": "^0.3.1",
-    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/module-builder": "^0.6.0",
     "@nuxt/schema": "^3.11.2",
     "@nuxt/ui": "^2.15.1",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
