@@ -46,7 +46,7 @@
     "@meilisearch/instant-meilisearch": "^0.17.0",
     "@nuxt/kit": "^3.11.2",
     "instantsearch.css": "^8.1.0",
-    "meilisearch": "^0.38.0",
+    "meilisearch": "^0.40.0",
     "vue-instantsearch": "^4.15.0"
   },
   "devDependencies": {
