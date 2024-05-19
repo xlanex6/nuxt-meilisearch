@@ -26,6 +26,7 @@ const client = useInstantSearch()
           <div v-for="{ id, title, price, genre } in items" :key="id" class="card">
             <div>
               <h1>{{ title }}</h1>
+              <p>{{ genre }} - {{ price }}</p>
             </div>
           </div>
         </template>
