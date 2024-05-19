@@ -20,10 +20,17 @@ const client = useInstantSearch()
       index-name="books"
     >
       <AisConfigure :hits-per-page.camel="10" />
-      <AisSearchBox placeholder="Search here…" class="searchbox" />
+      <AisSearchBox
+        placeholder="Search here…"
+        class="searchbox"
+      />
       <AisHits>
         <template #default="{ items }">
-          <div v-for="{ id, title, price, genre } in items" :key="id" class="card">
+          <div
+            v-for="{ id, title, price, genre } in items"
+            :key="id"
+            class="card"
+          >
             <div>
               <h1>{{ title }}</h1>
               <p>{{ genre }} - {{ price }}</p>

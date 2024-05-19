@@ -8,6 +8,13 @@ import type {
   MultiSearchResult,
   Config as MeilisearchConfig,
 } from 'meilisearch'
+// Type definitions for meilisearch
+// Project: https://github.com/meilisearch/meilisearch-js
+// Definitions by: qdequele <quentin@meilisearch.com> <https://github.com/meilisearch>
+// Definitions: https://github.com/meilisearch/meilisearch-js
+// TypeScript Version: ^3.8.3
+
+import type { Task } from '../task'
 
 export type { AlgoliaMultipleQueriesQuery, MultiSearchResult }
 export type {
@@ -141,13 +148,6 @@ export type AlgoliaFacetStats = Record<
     sum: number
   }
 >
-// Type definitions for meilisearch
-// Project: https://github.com/meilisearch/meilisearch-js
-// Definitions by: qdequele <quentin@meilisearch.com> <https://github.com/meilisearch>
-// Definitions: https://github.com/meilisearch/meilisearch-js
-// TypeScript Version: ^3.8.3
-
-import { Task } from '../task'
 
 export type Config = {
   host: string
@@ -288,7 +288,7 @@ export type CategoriesDistribution = {
 export type Facet = string
 export type FacetDistribution = Record<Facet, CategoriesDistribution>
 export type MatchesPosition<T> = Partial<
-  Record<keyof T, Array<{ start: number; length: number }>>
+  Record<keyof T, Array<{ start: number, length: number }>>
 >
 
 export type Hit<T = Record<string, any>> = T & {
@@ -331,12 +331,12 @@ export type RankingScoreDetails = {
 
 export type Hits<T = Record<string, any>> = Array<Hit<T>>
 
-export type FacetStat = { min: number; max: number }
+export type FacetStat = { min: number, max: number }
 export type FacetStats = Record<string, FacetStat>
 
 export type SearchResponse<
   T = Record<string, any>,
-  S extends SearchParams | undefined = undefined
+  S extends SearchParams | undefined = undefined,
 > = {
   hits: Hits<T>
   processingTimeMs: number
@@ -347,8 +347,8 @@ export type SearchResponse<
 } & (undefined extends S
   ? Partial<FinitePagination & InfinitePagination>
   : true extends IsFinitePagination<NonNullable<S>>
-  ? FinitePagination
-  : InfinitePagination)
+    ? FinitePagination
+    : InfinitePagination)
 
 type FinitePagination = {
   totalHits: number
@@ -370,8 +370,8 @@ type IsFinitePagination<S extends SearchParams> = Or<
 type Or<A extends boolean, B extends boolean> = true extends A
   ? true
   : true extends B
-  ? true
-  : false
+    ? true
+    : false
 
 type HasHitsPerPage<S extends SearchParams> = undefined extends S['hitsPerPage']
   ? false
