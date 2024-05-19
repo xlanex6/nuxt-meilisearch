@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.3.4
+
+[compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.3.2...v1.3.4)
+
+### 🏡 Chore
+
+- Update package.json version to 1.3.3 and fix dev:prepare script ([ad3b6dc](https://github.com/xlanex6/nuxt-meilisearch/commit/ad3b6dc))
+- Update release script to use pnpm instead of npm ([b2c0bda](https://github.com/xlanex6/nuxt-meilisearch/commit/b2c0bda))
+
+### ❤️ Contributors
+
+- Xlanex6 ([@xlanex6](http://github.com/xlanex6))
+
 ### [0.1.9](https://github.com/xlanex6/nuxt-meilisearch/compare/v0.1.8...v0.1.9) (2023-04-23)
 
 ### [0.1.8](https://github.com/xlanex6/nuxt-meilisearch/compare/v0.1.7...v0.1.8) (2023-04-04)
