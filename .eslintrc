@@ -8,6 +8,7 @@
   "rules": {
     "failOnWarn": false,
     "emitError": false,
-    "failOnError": false
+    "failOnError": false,
+    "emitWarning": true
   }
 }
