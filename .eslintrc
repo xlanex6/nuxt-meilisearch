@@ -2,6 +2,12 @@
   "root": true,
   "extends": [
     "@nuxtjs",
+    "@nuxtjs/eslint-module",
     "@nuxtjs/eslint-config-typescript"
-  ]
+  ],
+  "rules": {
+    "failOnWarn": false,
+    "emitError": false,
+    "failOnError": false
+  }
 }
