@@ -17,7 +17,7 @@ const client = useInstantSearch()
 
     <AisInstantSearch
       :search-client="client"
-      index-name="books"
+      index-name="prodducts"
     >
       <AisConfigure :hits-per-page.camel="10" />
       <AisSearchBox
