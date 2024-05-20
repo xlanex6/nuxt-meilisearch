@@ -1,3 +1,5 @@
+/* eslint no-use-before-define: 0 */
+
 import type { SearchClient } from 'instantsearch.js'
 import type {
   MultipleQueriesQuery as AlgoliaMultipleQueriesQuery,
@@ -167,7 +169,7 @@ export type Pagination = {
   limit?: number
 }
 
-export type ResourceQuery = Pagination & {}
+export type ResourceQuery = Pagination & object
 
 export type ResourceResults<T> = Pagination & {
   results: T
@@ -189,9 +191,9 @@ export type IndexObject = {
   updatedAt: Date
 }
 
-export type IndexesQuery = ResourceQuery & {}
+export type IndexesQuery = ResourceQuery & object
 
-export type IndexesResults<T> = ResourceResults<T> & {}
+export type IndexesResults<T> = ResourceResults<T> & object
 
 /*
  * SEARCH PARAMETERS
@@ -529,8 +531,8 @@ export type TasksQuery = {
   limit?: number
   from?: number
 }
-export type CancelTasksQuery = Omit<TasksQuery, 'limit' | 'from'> & {}
-export type DeleteTasksQuery = Omit<TasksQuery, 'limit' | 'from'> & {}
+export type CancelTasksQuery = Omit<TasksQuery, 'limit' | 'from'> & object
+export type DeleteTasksQuery = Omit<TasksQuery, 'limit' | 'from'> & object
 
 export type EnqueuedTaskObject = {
   taskUid: number
@@ -680,9 +682,9 @@ export type KeyUpdate = {
   description?: string
 }
 
-export type KeysQuery = ResourceQuery & {}
+export type KeysQuery = ResourceQuery & object
 
-export type KeysResults = ResourceResults<Key[]> & {}
+export type KeysResults = ResourceResults<Key[]> & object
 
 /*
  ** version
