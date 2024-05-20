@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.3.8
+
+[compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.3.6...v1.3.8)
+
+### 🏡 Chore
+
+- **release:** V1.3.6 ([609769a](https://github.com/xlanex6/nuxt-meilisearch/commit/609769a))
+- **release:** V1.3.7 ([83b3a02](https://github.com/xlanex6/nuxt-meilisearch/commit/83b3a02))
+- Remove unused eslint configuration file and update instantsearch types ([aeae9c3](https://github.com/xlanex6/nuxt-meilisearch/commit/aeae9c3))
+
+### ❤️ Contributors
+
+- Xlanex6 ([@xlanex6](http://github.com/xlanex6))
+
 ## v1.3.7
 
 [compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.3.6...v1.3.7)
