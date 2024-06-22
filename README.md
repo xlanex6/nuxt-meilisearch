@@ -25,7 +25,13 @@ Read [Nuxt Meilisearch documentation](https://nuxt-meilisearch.vercel.app).
 
 ## Installation
 
-Install nuxt-meilisearch:
+Add `nuxt-meilisearch` using the Nuxt CLI to your project
+
+```bash
+npx nuxi@latest module add nuxt-meilisearch
+```
+
+or add `nuxt-meilisearch` using your dependency manager
 
 ```bash
 # with npm
@@ -38,14 +44,10 @@ yarn add nuxt-meilisearch
 pnpm add nuxt-meilisearch
 ```
 
-> [!WARNING]
-> v1.0 introduced a breaking change on the module configuration options.
-
-Then, update your `nuxt.config.ts`:
+and then to the `modules` section of `nuxt.config.ts`:
 
  ```ts
 // nuxt.config.ts
-
 export default defineNuxtConfig({
   modules: [
     'nuxt-meilisearch'
@@ -57,6 +59,8 @@ export default defineNuxtConfig({
     serverSideUsage: true // default: false
 })
 ```
+
+That's it! 🎉
 
 ## Usage
 
