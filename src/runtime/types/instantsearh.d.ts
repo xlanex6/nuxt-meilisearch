@@ -16,7 +16,7 @@ import type {
 // Definitions: https://github.com/meilisearch/meilisearch-js
 // TypeScript Version: ^3.8.3
 
-import type { Task } from '../task'
+// import type { Task } from '../task'
 
 export type { AlgoliaMultipleQueriesQuery, MultiSearchResult }
 export type {
