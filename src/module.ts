@@ -6,7 +6,7 @@ import {
 import { addCustomTab } from '@nuxt/devtools-kit'
 import { defu } from 'defu'
 
-import type { ModuleOptions } from './runtime/types/meilisearch.d'
+import type { ModuleOptions } from './runtime/types/meilisearch.d.ts'
 
 enum InstantSearchThemes {
   reset,
