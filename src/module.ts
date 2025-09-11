@@ -6,7 +6,7 @@ import {
 import { addCustomTab } from '@nuxt/devtools-kit'
 import { defu } from 'defu'
 
-import type { ModuleOptions } from './runtime/types/nuxtMeilisearch.js'
+import type { ModuleOptions } from './runtime/types/nuxtMeilisearch'
 
 enum InstantSearchThemes {
   reset,
@@ -94,7 +94,7 @@ export default defineNuxtModule<ModuleOptions>({
       references.push({
         path: resolver.resolve('./runtime/types/nuxtMeilisearch.d.ts'),
       }, {
-        path: resolver.resolve('./runtime/instantsearch.d.ts'),
+        path: resolver.resolve('./runtime/types/instantsearch.d.ts'),
       })
     })
 

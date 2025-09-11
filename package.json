@@ -42,27 +42,28 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.19.3",
-    "@nuxt/kit": "3.12.4",
-    "instantsearch.css": "8.4.0",
-    "meilisearch": "0.41.0",
-    "vue-instantsearch": "4.19.2"
+    "@meilisearch/instant-meilisearch": "0.27.0",
+    "@nuxt/kit": "3.14.1592",
+    "@nuxt/types": "^2.18.1",
+    "instantsearch.css": "8.5.1",
+    "meilisearch": "0.52.0",
+    "vue-instantsearch": "4.21.2"
   },
   "devDependencies": {
+    "@nuxt/devtools": "1.6.3",
+    "@nuxt/eslint-config": "0.7.2",
+    "@nuxt/module-builder": "0.8.4",
+    "@nuxt/schema": "3.14.1592",
+    "@nuxt/test-utils": "3.15.1",
+    "@nuxt/ui": "2.19.2",
+    "@types/node": "22.10.1",
+    "changelogen": "0.5.7",
     "defu": "6.1.4",
-    "@nuxt/ui": "2.18.4",
-    "@nuxt/devtools": "1.3.9",
-    "@nuxt/eslint-config": "0.5.1",
-    "@nuxt/module-builder": "0.8.3",
-    "@nuxt/schema": "3.12.4",
-    "@nuxt/test-utils": "3.14.1",
-    "@types/node": "22.4.1",
-    "changelogen": "0.5.5",
-    "eslint": "9.9.0",
-    "nuxt": "3.12.4",
+    "eslint": "9.16.0",
+    "nuxt": "3.14.1592",
     "typescript": "latest",
-    "vitest": "2.0.5",
-    "vue-tsc": "2.0.29"
+    "vitest": "2.1.8",
+    "vue-tsc": "2.1.10"
   },
   "publishConfig": {
     "access": "public"
