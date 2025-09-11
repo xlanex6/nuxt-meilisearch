@@ -19,13 +19,13 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
+      "types": "./dist/types.d.mts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
     }
   },
   "main": "./dist/module.mjs",
-  "types": "./dist/types.d.ts",
+  "types": "./dist/types.d.mts",
   "files": [
     "dist"
   ],
@@ -72,5 +72,8 @@
   "directories": {
     "doc": "docs",
     "example": "playground"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@latest"
   }
 }
