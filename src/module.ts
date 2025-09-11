@@ -6,12 +6,18 @@ import {
 import { addCustomTab } from '@nuxt/devtools-kit'
 import { defu } from 'defu'
 
-import type { ModuleOptions } from './runtime/types/nuxtMeilisearch'
-
 enum InstantSearchThemes {
   reset,
   algolia,
   satellite,
+}
+
+export interface ModuleOptions {
+  hostUrl: string
+  searchApiKey: string
+  adminApiKey?: string
+  serverSideUsage?: boolean
+  instantSearch?: boolean | { theme: keyof typeof InstantSearchThemes }
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -89,9 +95,9 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.hook('prepare:types', ({ references }) => {
       references.push({
-        path: resolver.resolve('./runtime/types/nuxtMeilisearch.d.ts'),
+        path: resolver.resolve('./runtime/types/nuxtMeilisearch'),
       }, {
-        path: resolver.resolve('./runtime/types/instantsearch.d.ts'),
+        path: resolver.resolve('./runtime/types/instantsearch'),
       })
     })
 
