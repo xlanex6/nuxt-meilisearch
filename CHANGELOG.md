@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.4.3
+
+[compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.4.1...v1.4.3)
+
+### 🏡 Chore
+
+- **release:** V1.4.2 ([0b4cac5](https://github.com/xlanex6/nuxt-meilisearch/commit/0b4cac5))
+
+### ❤️ Contributors
+
+- Xlanex6 ([@xlanex6](https://github.com/xlanex6))
+
 ## v1.4.1
 
 [compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.3.10...v1.4.1)
