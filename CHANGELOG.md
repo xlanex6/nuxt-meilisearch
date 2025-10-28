@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.4.1
+
+[compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.3.10...v1.4.1)
+
+### 🩹 Fixes
+
+- Correct import path for ModuleOptions to include .d.ts extension ([5d45608](https://github.com/xlanex6/nuxt-meilisearch/commit/5d45608))
+- Update import paths and add ModuleOptions interface for improved type definitions and clarity in nuxtMeilisearch module ([6ab7104](https://github.com/xlanex6/nuxt-meilisearch/commit/6ab7104))
+
+### 🏡 Chore
+
+- **release:** V1.3.10 ([33fddf6](https://github.com/xlanex6/nuxt-meilisearch/commit/33fddf6))
+- Dependencies ([b1e0abf](https://github.com/xlanex6/nuxt-meilisearch/commit/b1e0abf))
+- Update dependencies to latest versions (instant-meilisearch, nuxt/kit, instantsearch.css, vue-instantsearch, eslint) ([8197412](https://github.com/xlanex6/nuxt-meilisearch/commit/8197412))
+- Comment out unused Task import in instantsearch.d.ts for clarity and maintainability ([067f740](https://github.com/xlanex6/nuxt-meilisearch/commit/067f740))
+
+### ❤️ Contributors
+
+- Xlanex6 ([@xlanex6](https://github.com/xlanex6))
+
 ## v1.3.10
 
 [compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.3.9...v1.3.10)

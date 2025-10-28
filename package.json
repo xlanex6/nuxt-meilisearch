@@ -1,7 +1,7 @@
 {
   "name": "nuxt-meilisearch",
   "type": "module",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "Alex Duval",
   "license": "MIT",
   "homepage": "https://nuxt-meilisearch.vercel.app",
@@ -34,7 +34,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "pnpm run prepack && changelogen --release && pnpm publish && git push --follow-tags",
+    "release": "changelogen --release && pnpm publish && git push --follow-tags",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest run",
