@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+
+  --breakpoint-3xl: 1920px;
+
+  --color-pink-50: #fef2f4;
+  --color-pink-100: #fde6eb;
+  --color-pink-200: #fad1db;
+  --color-pink-300: #f5acbd;
+  --color-pink-400: #ef7d9a;
+  --color-pink-500: #e44b76;
+  --color-pink-600: #d02e63;
+  --color-pink-700: #af2154;
+  --color-pink-800: #931e4b;
+  --color-pink-900: #7e1d46;
+  --color-pink-950: #460b22;
+}

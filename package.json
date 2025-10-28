@@ -1,7 +1,7 @@
 {
   "name": "nuxt-meilisearch",
   "type": "module",
-  "version": "1.3.10",
+  "version": "1.4.0",
   "author": "Alex Duval",
   "license": "MIT",
   "homepage": "https://nuxt-meilisearch.vercel.app",
@@ -39,30 +39,31 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
+    "clean": "rm -rf .nuxt .output node_modules pnpm-lock.yaml"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.19.3",
-    "@nuxt/kit": "3.12.4",
-    "instantsearch.css": "8.4.0",
-    "meilisearch": "0.41.0",
-    "vue-instantsearch": "4.19.2"
+    "@meilisearch/instant-meilisearch": "0.28.0",
+    "@nuxt/kit": "4.2.0",
+    "instantsearch.css": "8.6.0",
+    "meilisearch": "0.54.0",
+    "vue-instantsearch": "4.22.0"
   },
   "devDependencies": {
     "defu": "6.1.4",
-    "@nuxt/ui": "2.18.4",
-    "@nuxt/devtools": "1.3.9",
-    "@nuxt/eslint-config": "0.5.1",
-    "@nuxt/module-builder": "0.8.3",
-    "@nuxt/schema": "3.12.4",
-    "@nuxt/test-utils": "3.14.1",
-    "@types/node": "22.4.1",
-    "changelogen": "0.5.5",
-    "eslint": "9.9.0",
-    "nuxt": "3.12.4",
+    "@nuxt/ui": "4.1.0",
+    "@nuxt/devtools": "3.0.0",
+    "@nuxt/eslint-config": "1.9.0",
+    "@nuxt/module-builder": "1.0.2",
+    "@nuxt/schema": "4.2.0",
+    "@nuxt/test-utils": "3.20.1",
+    "@types/node": "24.9.1",
+    "changelogen": "0.6.2",
+    "eslint": "9.38.0",
+    "nuxt": "4.2.0",
     "typescript": "latest",
-    "vitest": "2.0.5",
-    "vue-tsc": "2.0.29"
+    "vitest": "4.0.4",
+    "vue-tsc": "3.1.2"
   },
   "publishConfig": {
     "access": "public"

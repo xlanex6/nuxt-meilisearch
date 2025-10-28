@@ -19,7 +19,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-meilisearch',
     configKey: 'meilisearch',
     compatibility: {
-      nuxt: '^3.0.0-rc.9',
+      nuxt: '>=3.0.0'
     },
   },
   defaults: {

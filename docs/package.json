@@ -1,0 +1,12 @@
+{
+  "name": "nuxt-meilisearch-docs",
+  "scripts": {
+    "dev": "nuxt dev --extends docus",
+    "build": "nuxt build --extends docus"
+  },
+  "dependencies": {
+    "docus": "latest",
+    "better-sqlite3": "12.4.1",
+    "nuxt": "4.2.0"
+  }
+}
