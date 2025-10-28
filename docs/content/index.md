@@ -5,7 +5,7 @@ seo:
   description: Easy way to install a blazing-fast search experience with [Meilisearch](https://www.meilisearch.com) into your [Nuxt](https://v3.nuxtjs.org) application
 ---
 
-::block-hero
+::u-page-hero
 ---
 cta:
   - Get Started
@@ -26,35 +26,69 @@ Nuxt Meilisearch
 #description
 Easy way to install a blazing-fast search experience with [Meilisearch](https://www.meilisearch.com) into your [Nuxt](https://v3.nuxtjs.org) application
 
-#extra
+#links
+  :::u-button
+  ---
+  color: neutral
+  size: xl
+  to: /getting-started/setup
+  trailing-icon: i-lucide-arrow-right
+  ---
+  Get started
+  :::
 
+  :::u-button
+  ---
+  color: neutral
+  icon: simple-icons-github
+  size: xl
+  to: https://github.com/xlanex6/nuxt-meilisearch
+  variant: outline
+  ---
+  Star on GitHub
+  :::
 ::
 
-::card-grid
+
+::u-page-section
 #title
-🔎  Searching experience
+🚀 Native Search Experience
 
-#root
-:ellipsis
-
-#default
-  ::card
+#features
+  :::u-page-feature
+  ---
+  icon: i-simple-icons-nuxt
+  target: _blank
+  to: https://nuxt.com
+  ---
   #title
-  Easy integration
+  Built with [Nuxt 4]{.text-primary}
+  
   #description
-  Straight forward installation, out of complixity
-  ::
-  ::card
+  Optimized by the most famous Vue framework. Docus gives you everything you need to build fast, performant, and SEO-friendly websites.
+  :::
+
+  :::u-page-feature
+  ---
+  icon: i-simple-icons-meilisearch
+  target: _blank
+  to: https://www.meilisearch.com/
+  ---
   #title
-Easy composables
-#description
-`useMeiliSearch` and `useAsyncMeiliSearch` for SSR usage
-  ::
-::card
-#title
-Server Side
-#description
-Server usage  with `$meilisearch`.
-Manage documents and all preferences ( index, settings, addDocuments... )
-::
+  Powered by [Meilisearch]{.text-primary}
+  #description
+  Meilisearch is a modern search engine. It is a full-text search engine with an HTTP API and a JavaScript client.
+  ::: 
+
+  :::u-page-feature
+  ---
+  icon: picon:vue
+  target: _blank
+  to: https://vuejs.org/
+  ---
+  #title
+  Powered by [Vue 3]{.text-primary}
+  #description
+  Vue 3 is the latest version of Vue.js. It is a progressive framework for building user interfaces.
+  :::
 ::
