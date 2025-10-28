@@ -1,9 +1,19 @@
 import { MeiliSearch } from 'meilisearch'
 import { useRuntimeConfig } from '#imports'
+import type { H3Event } from 'h3'
 
-const { serverMeilisearchClient: { hostUrl, adminApiKey } } = useRuntimeConfig()
+let _meilisearchClient: MeiliSearch
 
-export const $meilisearch = new MeiliSearch({
-  host: hostUrl,
-  apiKey: adminApiKey,
-})
+export function $meilisearch(event: H3Event) {
+  const { serverMeilisearchClient: { hostUrl, adminApiKey } } = useRuntimeConfig(event)
+
+
+  if (!_meilisearchClient) {
+    _meilisearchClient = new MeiliSearch({
+      host: hostUrl,
+      apiKey: adminApiKey,
+    })
+  }
+
+  return _meilisearchClient
+}
