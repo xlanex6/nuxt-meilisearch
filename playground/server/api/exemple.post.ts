@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
 
   // Meiliseach is available with $meilisearch
 
-  const recordAddRes = $meilisearch(event)
+  const recordAddRes = $meilisearch(event).index('products').addDocuments(body)
 
-  return recordAddRes
+  return { recordAddRes }
 })
