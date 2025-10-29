@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.4.15
+
+[compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.4.14...v1.4.15)
+
+### 🩹 Fixes
+
+- Correct import path for ModuleOptions in module.ts ([a502660](https://github.com/xlanex6/nuxt-meilisearch/commit/a502660))
+
+### ❤️ Contributors
+
+- Xlanex6 ([@xlanex6](https://github.com/xlanex6))
+
 ## v1.4.14
 
 [compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.4.13...v1.4.14)
