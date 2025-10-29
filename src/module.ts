@@ -94,7 +94,7 @@ export default defineNuxtModule<ModuleOptions>({
       references.push({
         path: resolver.resolve('./runtime/types/nuxtMeilisearch.d.ts'),
       }, {
-        path: resolver.resolve('./runtime/instantsearch.d.ts'),
+        path: resolver.resolve('./runtime/types/instantsearh.d.ts'),
       })
     })
 

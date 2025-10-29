@@ -24,7 +24,13 @@
     }
   },
   "main": "./dist/module.mjs",
-  "types": "./dist/types.d.ts",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
   "files": [
     "dist"
   ],
