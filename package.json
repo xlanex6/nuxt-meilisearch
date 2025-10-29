@@ -1,7 +1,7 @@
 {
   "name": "nuxt-meilisearch",
   "type": "module",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "author": "Alex Duval",
   "license": "MIT",
   "homepage": "https://nuxt-meilisearch.vercel.app",
