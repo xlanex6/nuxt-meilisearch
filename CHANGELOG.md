@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.4.8
+
+[compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.4.7...v1.4.8)
+
+### 🏡 Chore
+
+- Remove CommonJS export from package.json to streamline module usage ([de4ff69](https://github.com/xlanex6/nuxt-meilisearch/commit/de4ff69))
+
+### ❤️ Contributors
+
+- Xlanex6 ([@xlanex6](https://github.com/xlanex6))
+
 ## v1.4.7
 
 [compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.4.6...v1.4.7)
