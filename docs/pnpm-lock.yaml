@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@nuxt/ui':
+        specifier: latest
+        version: 4.1.0(@babel/parser@7.28.5)(db0@0.3.4(better-sqlite3@12.4.1))(embla-carousel@8.6.0)(ioredis@5.8.2)(magicast@0.5.0)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(yaml@2.8.1))(vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))(zod@3.25.76)
       better-sqlite3:
         specifier: 12.4.1
         version: 12.4.1
