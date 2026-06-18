@@ -48,7 +48,8 @@
     "test:coverage": "vitest run --coverage",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
     "typecheck": "pnpm test:types",
-    "clean": "rm -rf .nuxt .output node_modules pnpm-lock.yaml"
+    "clean": "rm -rf .nuxt .output node_modules pnpm-lock.yaml",
+    "deploy:docs": "cd docs && npx vercel --prod"
   },
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.31.2",
