@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.5.0
+
+[compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.4.17...v1.5.0)
+
+### 🚀 Enhancements
+
+- Add new skills and documentation for Nuxt and create-skill ([6cb91b5](https://github.com/xlanex6/nuxt-meilisearch/commit/6cb91b5))
+- Add comprehensive documentation for Meilisearch skills, including setup, indexing, search, filtering, and security ([d6464d5](https://github.com/xlanex6/nuxt-meilisearch/commit/d6464d5))
+
+### 📖 Documentation
+
+- Update Meilisearch access method in server documentation and add .vercel to .gitignore ([6a79afa](https://github.com/xlanex6/nuxt-meilisearch/commit/6a79afa))
+- Update ([16e8537](https://github.com/xlanex6/nuxt-meilisearch/commit/16e8537))
+
+### 🏡 Chore
+
+- Update dependencies in pnpm-lock.yaml and add .vercel to .gitignore ([831d61f](https://github.com/xlanex6/nuxt-meilisearch/commit/831d61f))
+- Remove unused configuration and assets from docus template ([c9ee793](https://github.com/xlanex6/nuxt-meilisearch/commit/c9ee793))
+- Update dependencies in package.json and pnpm-lock.yaml, add new test scripts, and modify type reference in playground ([7de7833](https://github.com/xlanex6/nuxt-meilisearch/commit/7de7833))
+
+### ❤️ Contributors
+
+- Xlanex6 ([@xlanex6](https://github.com/xlanex6))
+
 ## v1.4.17
 
 [compare changes](https://github.com/xlanex6/nuxt-meilisearch/compare/v1.4.16...v1.4.17)
