@@ -1,13 +1,21 @@
 {
   "name": "nuxt-meilisearch-docs",
+  "private": true,
   "scripts": {
-    "dev": "nuxt dev --extends docus",
-    "build": "nuxt build --extends docus"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "pnpm rebuild better-sqlite3"
   },
   "dependencies": {
+    "better-sqlite3": "^12.6.2",
     "docus": "latest",
-    "@nuxt/ui": "latest",
-    "better-sqlite3": "12.4.1",
-    "nuxt": "4.2.0"
+    "nuxt": "^4.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
   }
 }

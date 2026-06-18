@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "create-docs": {
+      "source": "nuxt-content/docus",
+      "sourceType": "github",
+      "skillPath": "docs/skills/create-docs/SKILL.md",
+      "computedHash": "3c6d7d6f6084ff5ebbd59fe8b348f99bced0d303da45cd61069a0f6dac8199f6"
+    },
     "create-skill": {
       "source": "siviter-xyz/dot-agent",
       "sourceType": "github",
