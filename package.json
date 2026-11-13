@@ -1,6 +1,7 @@
 {
   "name": "nuxt-meilisearch",
   "type": "module",
+  "packageManager": "pnpm@12.4.2",
   "version": "1.5.1",
   "author": "Alex Duval",
   "license": "MIT",

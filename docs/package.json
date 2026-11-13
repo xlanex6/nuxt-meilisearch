@@ -1,6 +1,7 @@
 {
   "name": "nuxt-meilisearch-docs",
   "type": "module",
+  "packageManager": "pnpm@12.4.2",
   "private": true,
   "scripts": {
     "dev": "nuxt dev",
