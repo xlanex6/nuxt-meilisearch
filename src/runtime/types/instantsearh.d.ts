@@ -9,7 +9,7 @@ import type {
   MultiSearchQuery as MeiliSearchMultiSearchParams,
   MultiSearchResult,
   Config as MeilisearchConfig,
-  MeiliSearch,
+  Meilisearch,
 } from 'meilisearch'
 
 // Turns readonly types into mutable ones
@@ -25,17 +25,20 @@ export type AlgoliaSearchForFacetValuesRequests = Parameters<
   ReturnType<typeof multipleSearchForFacetValues>
 >[0]
 
-export type AlgoliaSearchForFacetValuesRequest =
-  AlgoliaSearchForFacetValuesRequests[0]
+export type AlgoliaSearchForFacetValuesRequest
+  = AlgoliaSearchForFacetValuesRequests[0]
 
 export type {
   Filter,
   FacetDistribution,
-  MeiliSearch,
+  Meilisearch,
   FacetStats as MeiliFacetStats,
   MultiSearchQuery as MeiliSearchMultiSearchParams,
   Config as MeilisearchConfig,
 } from 'meilisearch'
+
+/** @deprecated Use {@link Meilisearch}. */
+export type MeiliSearch = Meilisearch
 
 export type ApiKeyCallback = () => string
 
@@ -66,8 +69,8 @@ type BaseOverridableMeiliSearchSearchParameters = Pick<
   | 'vector'
 >
 
-export type OverridableMeiliSearchSearchParameters =
-  BaseOverridableMeiliSearchSearchParameters & {
+export type OverridableMeiliSearchSearchParameters
+  = BaseOverridableMeiliSearchSearchParameters & {
     indexesOverrides?: Record<
       string,
       BaseOverridableMeiliSearchSearchParameters
@@ -86,20 +89,20 @@ type BaseInstantMeiliSearchOptions = {
 export type InstantMeiliSearchOptions = Pick<
   MeilisearchConfig,
   'requestInit' | 'httpClient'
-> &
-  BaseInstantMeiliSearchOptions
+>
+& BaseInstantMeiliSearchOptions
 
 export type InstantMeiliSearchConfig = Required<
   Pick<
     InstantMeiliSearchOptions,
     'placeholderSearch' | 'keepZeroFacets' | 'clientAgents' | 'finitePagination'
   >
-> &
-  BaseInstantMeiliSearchOptions
+>
+& BaseInstantMeiliSearchOptions
 
 export type SearchCacheInterface = {
   getEntry: <T>(key: string) => T | undefined
-  formatKey: (components: any[]) => string
+  formatKey: (components: unknown[]) => string
   setEntry: <T>(key: string, searchResponse: T) => void
   clearCache: () => void
 }
@@ -119,13 +122,13 @@ export type InstantSearchPagination = {
   nbPages: number
 }
 
-export type MeilisearchMultiSearchResult<T = Record<string, any>> =
-  MultiSearchResult<T> & {
+export type MeilisearchMultiSearchResult<T = Record<string, unknown>>
+  = MultiSearchResult<T> & {
     pagination: PaginationState
   }
 
-export type SearchContext = InstantMeiliSearchOptions &
-  InstantSearchParams & {
+export type SearchContext = InstantMeiliSearchOptions
+  & InstantSearchParams & {
     pagination: PaginationState
     indexUid: string
     sort?: string | string[]
@@ -141,13 +144,13 @@ export type InstantSearchGeoParams = {
   insidePolygon?: ReadonlyArray<readonly number[]>
 }
 
-export type InstantMeiliSearchInstance =
-  InstantSearchOptions['searchClient'] & {
+export type InstantMeiliSearchInstance
+  = InstantSearchOptions['searchClient'] & {
     clearCache: () => void
   }
 
 export type InstantMeiliSearchObject = {
-  meiliSearchInstance: MeiliSearch
+  meiliSearchInstance: Meilisearch
   setMeiliSearchParams: (params: OverridableMeiliSearchSearchParameters) => void
   searchClient: InstantMeiliSearchInstance
 }
@@ -155,7 +158,7 @@ export type InstantMeiliSearchObject = {
 export type MultiSearchResolver = {
   multiSearch: (
     searchQueries: MeiliSearchMultiSearchParams[],
-    instantSearchPagination: PaginationState[]
+    instantSearchPagination: PaginationState[],
   ) => Promise<MeilisearchMultiSearchResult[]>
 }
 

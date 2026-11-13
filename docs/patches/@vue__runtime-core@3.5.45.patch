@@ -1,0 +1,47 @@
+diff --git a/dist/runtime-core.cjs.js b/dist/runtime-core.cjs.js
+index 22ac138660bbb14a381fde29e0d4a7ffbe33bd6f..e7dd56b5d94567675c3ec9989c54c7676d81ba30 100644
+--- a/dist/runtime-core.cjs.js
++++ b/dist/runtime-core.cjs.js
+@@ -1840,6 +1840,7 @@ function useTemplateRef(key) {
+       warn$1(`useTemplateRef('${key}') already exists.`);
+     } else {
+       Object.defineProperty(refs, key, {
++        configurable: true,
+         enumerable: true,
+         get: () => r.value,
+         set: (val) => r.value = val
+diff --git a/dist/runtime-core.cjs.prod.js b/dist/runtime-core.cjs.prod.js
+index 0306b53f39f4959b19e3192bc4162731c9368331..988818b8fc4ab9e8b9dcaa321f48886cddefc574 100644
+--- a/dist/runtime-core.cjs.prod.js
++++ b/dist/runtime-core.cjs.prod.js
+@@ -1347,8 +1347,9 @@ function useTemplateRef(key) {
+   const r = reactivity.shallowRef(null);
+   if (i) {
+     const refs = i.refs === shared.EMPTY_OBJ ? i.refs = {} : i.refs;
+-    {
++    if (!Object.getOwnPropertyDescriptor(refs, key)) {
+       Object.defineProperty(refs, key, {
++        configurable: true,
+         enumerable: true,
+         get: () => r.value,
+         set: (val) => r.value = val
+diff --git a/dist/runtime-core.esm-bundler.js b/dist/runtime-core.esm-bundler.js
+index b1e3a1c30f54a82cf63b655f89125622412044a4..a4f0e4626019b5057869c1ed096d5131ca0d1cf5 100644
+--- a/dist/runtime-core.esm-bundler.js
++++ b/dist/runtime-core.esm-bundler.js
+@@ -1840,10 +1840,13 @@ function useTemplateRef(key) {
+   const r = shallowRef(null);
+   if (i) {
+     const refs = i.refs === EMPTY_OBJ ? i.refs = {} : i.refs;
+-    if (!!(process.env.NODE_ENV !== "production") && isTemplateRefKey(refs, key)) {
+-      warn$1(`useTemplateRef('${key}') already exists.`);
++    if (Object.getOwnPropertyDescriptor(refs, key)) {
++      if (!!(process.env.NODE_ENV !== "production")) {
++        warn$1(`useTemplateRef('${key}') already exists.`);
++      }
+     } else {
+       Object.defineProperty(refs, key, {
++        configurable: true,
+         enumerable: true,
+         get: () => r.value,
+         set: (val) => r.value = val

@@ -15,7 +15,7 @@ Read [Nuxt Meilisearch documentation](https://nuxt-meilisearch.vercel.app).
 
 ## Features
 
-- Nuxt 3 integration
+- Nuxt 3 and Nuxt 4 integration
 - Auto-imported composables
 - Server-side rendering support
 - Client & server integration of Meilisearch

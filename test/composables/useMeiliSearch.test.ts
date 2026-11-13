@@ -16,7 +16,7 @@ describe('useMeiliSearch', () => {
   })
 
   it('returns search function and result ref', async () => {
-    let searchFn: ((...args: unknown[]) => unknown) | undefined
+    let searchFn: ReturnType<typeof useMeiliSearch>['search'] | undefined
     let result: unknown
 
     const TestComponent = defineComponent({
@@ -60,7 +60,7 @@ describe('useMeiliSearch', () => {
   })
 
   it('passes searchParams to the underlying search call', async () => {
-    const { MeiliSearch } = await import('meilisearch')
+    const { Meilisearch } = await import('meilisearch')
     vi.clearAllMocks()
 
     let searchFn: ((query: string, params?: Record<string, unknown>) => Promise<unknown>) | undefined
@@ -79,7 +79,7 @@ describe('useMeiliSearch', () => {
     expect(searchFn).toBeDefined()
     await searchFn!('nuxt query', { limit: 5 })
 
-    const instance = vi.mocked(MeiliSearch).mock.results[0]?.value as { index: ReturnType<typeof vi.fn> } | undefined
+    const instance = vi.mocked(Meilisearch).mock.results[0]?.value as { index: ReturnType<typeof vi.fn> } | undefined
     if (instance) {
       expect(instance.index).toHaveBeenCalledWith('books')
     }

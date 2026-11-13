@@ -1,6 +1,7 @@
 {
   "name": "nuxt-meilisearch",
   "type": "module",
+  "packageManager": "pnpm@12.4.2",
   "version": "1.5.1",
   "author": "Alex Duval",
   "license": "MIT",
@@ -52,29 +53,31 @@
     "deploy:docs": "cd docs && npx vercel --prod"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "0.31.2",
-    "@nuxt/kit": "4.4.8",
-    "instantsearch.css": "8.17.0",
-    "meilisearch": "0.58.0",
-    "vue-instantsearch": "4.26.8"
+    "@meilisearch/instant-meilisearch": "0.31.5",
+    "@nuxt/devtools-kit": "4.1.0",
+    "@nuxt/kit": "4.6.4",
+    "instantsearch.css": "8.25.1",
+    "meilisearch": "0.63.0",
+    "vue-instantsearch": "4.33.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "4.0.0-alpha.7",
-    "@nuxt/eslint-config": "1.16.0",
-    "@nuxt/module-builder": "1.0.2",
-    "@nuxt/schema": "4.4.8",
-    "@nuxt/test-utils": "4.0.3",
-    "@nuxt/ui": "4.9.0",
-    "@types/node": "25.9.3",
-    "@vue/test-utils": "2.4.11",
+    "@nuxt/devtools": "4.1.0",
+    "@nuxt/eslint-config": "1.17.0",
+    "@nuxt/module-builder": "1.0.4",
+    "@nuxt/schema": "4.6.4",
+    "@nuxt/test-utils": "4.4.0",
+    "@nuxt/ui": "4.12.0",
+    "@types/node": "26.6.6",
+    "@vue/test-utils": "2.5.1",
     "changelogen": "0.6.2",
     "defu": "6.1.7",
-    "eslint": "10.5.0",
-    "happy-dom": "20.10.6",
-    "nuxt": "4.4.8",
-    "typescript": "latest",
-    "vitest": "4.1.9",
-    "vue-tsc": "3.3.5"
+    "eslint": "10.14.0",
+    "happy-dom": "21.0.4",
+    "nuxt": "4.6.4",
+    "typescript": "6.0.3",
+    "unbuild": "3.6.1",
+    "vitest": "5.1.0",
+    "vue-tsc": "3.3.14"
   },
   "publishConfig": {
     "access": "public"

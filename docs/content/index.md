@@ -2,29 +2,23 @@
 title: Home
 seo:
   title: Nuxt Meilisearch
-  description: Easy way to install a blazing-fast search experience with [Meilisearch](https://www.meilisearch.com) into your [Nuxt](https://v3.nuxtjs.org) application
+  description: Easy way to install a blazing-fast search experience with Meilisearch into your Nuxt application.
 ---
 
 ::u-page-hero
 ---
-cta:
-  - Get Started
-  - /getting-started/setup
-secondary:
-  - Open on GitHub →
-  - https://github.com/xlanex6/nuxt-meilisearch
-snippet: npm i -D nuxt-meilisearch
+snippet: npx nuxi@latest module add nuxt-meilisearch
 features:
-  - Easy integration with MeilisearchJS lib
-  - Support for Vue Algolia Vue 3 InstantSearch components (optional)
-  - Server usage to manage documents and all preferences ( index, preferences )
+  - Auto-imported composables for client and server search
+  - Optional Vue InstantSearch widgets
+  - Server routes to manage documents, indexes and settings
 ---
 
 #title
 Nuxt Meilisearch
 
 #description
-Easy way to install a blazing-fast search experience with [Meilisearch](https://www.meilisearch.com) into your [Nuxt](https://v3.nuxtjs.org) application
+Easy way to install a blazing-fast search experience with [Meilisearch](https://www.meilisearch.com) into your [Nuxt](https://nuxt.com) application.
 
 #links
   :::u-button
@@ -40,7 +34,7 @@ Easy way to install a blazing-fast search experience with [Meilisearch](https://
   :::u-button
   ---
   color: neutral
-  icon: simple-icons-github
+  icon: i-simple-icons-github
   size: xl
   to: https://github.com/xlanex6/nuxt-meilisearch
   variant: outline
@@ -49,10 +43,9 @@ Easy way to install a blazing-fast search experience with [Meilisearch](https://
   :::
 ::
 
-
 ::u-page-section
 #title
-🚀 Native Search Experience
+Search, wired into Nuxt
 
 #features
   :::u-page-feature
@@ -62,10 +55,10 @@ Easy way to install a blazing-fast search experience with [Meilisearch](https://
   to: https://nuxt.com
   ---
   #title
-  Built with [Nuxt 4]{.text-primary}
-  
+  Built for [Nuxt 3 and 4]{.text-primary}
+
   #description
-  Optimized by the most famous Vue framework. Docus gives you everything you need to build fast, performant, and SEO-friendly websites.
+  Drop the module in, set the host and a search key, and the composables are auto-imported on the client and the server.
   :::
 
   :::u-page-feature
@@ -76,19 +69,21 @@ Easy way to install a blazing-fast search experience with [Meilisearch](https://
   ---
   #title
   Powered by [Meilisearch]{.text-primary}
+
   #description
-  Meilisearch is a modern search engine. It is a full-text search engine with an HTTP API and a JavaScript client.
-  ::: 
+  Typo-tolerant full-text search, filters, facets and the official JavaScript client, with the admin key kept on the server.
+  :::
 
   :::u-page-feature
   ---
-  icon: picon:vue
+  icon: i-simple-icons-vuedotjs
   target: _blank
   to: https://vuejs.org/
   ---
   #title
-  Powered by [Vue 3]{.text-primary}
+  Optional [InstantSearch]{.text-primary}
+
   #description
-  Vue 3 is the latest version of Vue.js. It is a progressive framework for building user interfaces.
+  Turn on `instantSearch` to use Vue InstantSearch widgets against your Meilisearch indexes.
   :::
 ::
