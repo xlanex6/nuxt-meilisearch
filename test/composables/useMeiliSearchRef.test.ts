@@ -1,6 +1,7 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { defineComponent, h } from 'vue'
 import { describe, expect, it } from 'vitest'
+import { useNuxtApp } from '#app'
 import { useMeiliSearchRef } from '../../src/runtime/composables/useMeiliSearchRef'
 
 describe('useMeiliSearchRef', () => {
@@ -40,10 +41,12 @@ describe('useMeiliSearchRef', () => {
   })
 
   it('constructs client with hostUrl and searchApiKey from runtimeConfig', async () => {
-    const { MeiliSearch } = await import('meilisearch')
+    const { Meilisearch } = await import('meilisearch')
 
     const TestComponent = defineComponent({
       setup() {
+        const nuxtApp = useNuxtApp() as { _meilisearchClient?: unknown }
+        delete nuxtApp._meilisearchClient
         useMeiliSearchRef()
         return {}
       },
@@ -52,7 +55,7 @@ describe('useMeiliSearchRef', () => {
 
     await mountSuspended(TestComponent)
 
-    expect(MeiliSearch).toHaveBeenCalledWith(
+    expect(Meilisearch).toHaveBeenCalledWith(
       expect.objectContaining({
         host: expect.any(String),
         apiKey: expect.any(String),

@@ -3,7 +3,7 @@ import {
   createResolver,
   defineNuxtModule,
 } from '@nuxt/kit'
-import { addCustomTab } from '@nuxt/devtools-kit'
+import { NUXT_DEVTOOLS_GROUP_ID, onDevtoolsReady } from '@nuxt/devtools-kit'
 import { defu } from 'defu'
 
 import type { ModuleOptions } from './runtime/types/nuxtMeilisearch'
@@ -19,7 +19,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-meilisearch',
     configKey: 'meilisearch',
     compatibility: {
-      nuxt: '>=3.0.0'
+      nuxt: '>=3.0.0',
     },
   },
   defaults: {
@@ -44,7 +44,7 @@ export default defineNuxtModule<ModuleOptions>({
       searchApiKey: options.searchApiKey,
       serverSideUsage: options.serverSideUsage,
       instantSearch: options.instantSearch,
-    })
+    }) as typeof nuxt.options.runtimeConfig.public.meilisearchClient
 
     nuxt.options.runtimeConfig.serverMeilisearchClient = defu(nuxt.options.runtimeConfig.serverMeilisearchClient, {
       hostUrl: options.hostUrl,
@@ -52,7 +52,7 @@ export default defineNuxtModule<ModuleOptions>({
       serverSideUsage: options.serverSideUsage,
       adminApiKey: options.adminApiKey,
       instantSearch: options.instantSearch,
-    })
+    }) as typeof nuxt.options.runtimeConfig.serverMeilisearchClient
 
     const resolver = createResolver(import.meta.url)
 
@@ -98,14 +98,15 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    addCustomTab({
-      name: 'meilisearch',
-      title: 'Meilisearch',
-      icon: 'https://raw.githubusercontent.com/meilisearch/meilisearch/main/assets/logo.svg',
-      view: {
+    onDevtoolsReady((ctx) => {
+      ctx.docks.register({
+        id: 'meilisearch',
+        title: 'Meilisearch',
+        icon: 'https://raw.githubusercontent.com/meilisearch/meilisearch/main/assets/logo.svg',
         type: 'iframe',
-        src: `${options.hostUrl}`,
-      },
+        url: options.hostUrl,
+        groupId: NUXT_DEVTOOLS_GROUP_ID,
+      })
     })
   },
 

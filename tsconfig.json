@@ -1,7 +1,10 @@
 {
   "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "esModuleInterop": true
-  }
+  "exclude": [
+    "dist",
+    "docs",
+    "node_modules",
+    "playground",
+    "test/fixtures"
+  ]
 }
