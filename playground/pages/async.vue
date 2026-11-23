@@ -26,7 +26,7 @@ const query = ref('')
 
     <UButton
       label="Refesh"
-      @click="refresh"
+      @click="() => refresh()"
     /> Use `refresh` from async hook
 
     <div class="grid grid-cols-3 gap-2 pt-4">

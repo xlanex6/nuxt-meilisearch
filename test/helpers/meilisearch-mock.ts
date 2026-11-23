@@ -12,7 +12,7 @@ export function makeMockSearchResponse(hits: Record<string, unknown>[] = []): Se
   } as SearchResponse
 }
 
-export function getMeiliSearchMock() {
-  const { MeiliSearch } = vi.mocked(await import('meilisearch'))
-  return MeiliSearch
+export async function getMeiliSearchMock() {
+  const { Meilisearch } = vi.mocked(await import('meilisearch'))
+  return Meilisearch
 }

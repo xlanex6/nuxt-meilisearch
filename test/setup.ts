@@ -13,13 +13,13 @@ vi.mock('meilisearch', () => {
   const mockIndex = vi.fn().mockReturnValue({ search: mockSearch })
 
   // Regular function (not arrow) so it can be used as a constructor
-  function MeiliSearch(this: Record<string, unknown>, _options: unknown) {
+  function Meilisearch(this: Record<string, unknown>, _options: unknown) {
     this.index = mockIndex
   }
 
-  const MeiliSearchMock = vi.fn(MeiliSearch as unknown as new (...args: unknown[]) => { index: typeof mockIndex })
+  const MeilisearchMock = vi.fn(Meilisearch as unknown as new (...args: unknown[]) => { index: typeof mockIndex })
 
-  return { MeiliSearch: MeiliSearchMock, default: MeiliSearchMock }
+  return { Meilisearch: MeilisearchMock, default: MeilisearchMock }
 })
 
 vi.mock('@meilisearch/instant-meilisearch', () => {

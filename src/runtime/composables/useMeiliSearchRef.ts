@@ -1,4 +1,4 @@
-import { MeiliSearch } from 'meilisearch'
+import { Meilisearch } from 'meilisearch'
 import { useNuxtApp, useRuntimeConfig } from '#app'
 
 export function useMeiliSearchRef() {
@@ -7,11 +7,11 @@ export function useMeiliSearchRef() {
   const { meilisearchClient: { hostUrl, searchApiKey } } = useRuntimeConfig().public
 
   if (!nuxtApp._meilisearchClient) {
-    nuxtApp._meilisearchClient = new MeiliSearch({
+    nuxtApp._meilisearchClient = new Meilisearch({
       host: hostUrl,
       apiKey: searchApiKey,
     })
   }
 
-  return nuxtApp._meilisearchClient as MeiliSearch
+  return nuxtApp._meilisearchClient as Meilisearch
 }

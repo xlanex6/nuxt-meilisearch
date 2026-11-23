@@ -9,7 +9,8 @@ vi.mock('@nuxt/kit', () => ({
 }))
 
 vi.mock('@nuxt/devtools-kit', () => ({
-  addCustomTab: vi.fn(),
+  NUXT_DEVTOOLS_GROUP_ID: 'nuxt-devtools',
+  onDevtoolsReady: vi.fn(),
 }))
 
 type MockNuxt = {
